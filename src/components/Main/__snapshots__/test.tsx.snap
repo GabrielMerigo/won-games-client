@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Main /> it should render the heading 1`] = `
+.c0 {
+  font-size: 2.5rem;
+}
+
+<h1
+  class="c0"
+>
+  React Avançado
+</h1>
+`;
