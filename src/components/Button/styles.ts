@@ -10,11 +10,13 @@ const wrappersModifers = {
   `,
   medium: (theme: DefaultTheme) => css`
     height: 4rem;
-    font-size: ${theme.spacings.small};
+    font-size: ${theme.spacings.xsmall};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xsmall};
   `,
   large: (theme: DefaultTheme) => css`
     height: 5rem;
-    font-size: ${theme.spacings.medium};
+    font-size: ${theme.spacings.small};
+    padding: ${theme.spacings.xxsmall} ${theme.spacings.xlarge};
   `
 }
 
