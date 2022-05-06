@@ -8,21 +8,25 @@ export default {
   argTypes: {
     children: {
       type: 'string'
+    },
+    icon: {
+      type: ''
     }
   }
 }
 
-export const ButtonStory: Story = (args) => {
-  return  <Button {...args} />
+export const ButtonStory: Story = (props) => {
+  return  <Button {...props} />
 }
 
 ButtonStory.args = {
   children: 'Buy now'
-}
+} as Meta;
 
-export const withIcon: Story = (args) => <Button {...args} />
+export const withIcon: Story = (props) => <Button {...props} />
 
 withIcon.args = {
+  size: 'small',
   children: 'Buy now',
   icon: <AddShoppingCart />
-}
+} as Meta;
