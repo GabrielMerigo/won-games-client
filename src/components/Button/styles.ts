@@ -24,16 +24,16 @@ const wrappersModifers = {
     width: 100%;
   `,
   withIcon: (theme: DefaultTheme) => css`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  svg {
-    width: 1.5rem;
-    & + span {
-      margin-left: ${theme.spacings.xxsmall};
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    svg {
+      width: 1.5rem;
+      & + span {
+        margin-left: ${theme.spacings.xxsmall};
+      }
     }
-  }
-`
+  `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
