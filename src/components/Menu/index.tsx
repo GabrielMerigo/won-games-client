@@ -2,24 +2,26 @@ import * as S from './styles'
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2'
 import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart'
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search'
-import Logo from 'components/Logo'
+import Logo from '../../components/Logo'
 
 const Menu = () => (
   <S.Wrapper>
     <S.IconWrapper>
-      <MenuIcon />
+      <MenuIcon aria-label="open menu" />
     </S.IconWrapper>
 
-    <Logo hideOnMobile />
+    <S.LogoWrapper>
+      <Logo hideOnMobile />
+    </S.LogoWrapper>
 
-    <div>
+    <S.MenuGroup>
       <S.IconWrapper>
-        <ShoppingCartIcon />
+        <SearchIcon aria-label="search"  />
       </S.IconWrapper>
       <S.IconWrapper>
-        <SearchIcon />
+        <ShoppingCartIcon aria-label="open shopping cart" />
       </S.IconWrapper>
-    </div>
+    </S.MenuGroup>
   </S.Wrapper>
 )
 
