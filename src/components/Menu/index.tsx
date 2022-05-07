@@ -22,6 +22,8 @@ const Menu = () => (
         <ShoppingCartIcon aria-label="open shopping cart" />
       </S.IconWrapper>
     </S.MenuGroup>
+
+    <S.MenuFull aria-hidden="true"></S.MenuFull>
   </S.Wrapper>
 )
 
