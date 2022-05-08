@@ -76,7 +76,6 @@ export const MenuLink = styled.a`
   `}
 `;
 
-
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ isOpen, theme }) => css`
     display: flex;
