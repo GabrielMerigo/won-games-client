@@ -44,8 +44,44 @@ type MenuFullProps = {
   isOpen: boolean
 }
 
+export const MenuNav = styled.div``;
+
+export const MenuLink = styled.a`
+  ${({ theme }) => css`
+    position: relative;
+    font-size: ${theme.font.sizes.medium};
+    margin: 0.3rem ${theme.spacings.small} 0;
+    text-decoration: none;
+    text-align: center;
+    &:hover {
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.3rem;
+        background-color: ${theme.colors.primary};
+        animation: hoverAnimation 0.2s forwards;
+      }
+      @keyframes hoverAnimation {
+        from {
+          width: 0;
+          left: 50%;
+        }
+        to {
+          width: 100%;
+          left: 0;
+        }
+      }
+    }
+  `}
+`;
+
+
 export const MenuFull = styled.nav<MenuFullProps>`
   ${({ isOpen, theme }) => css`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: ${theme.colors.white};
     position: absolute;
     top: 0;
@@ -66,9 +102,21 @@ export const MenuFull = styled.nav<MenuFullProps>`
       height: 2.4rem;
       position: absolute;
     }
+
+    ${MenuNav} {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    ${MenuLink} {
+      color: ${theme.colors.black};
+      font-weight: ${theme.font.bold};
+      font-size: ${theme.font.sizes.xlarge};
+      margin-bottom: ${theme.spacings.small};
+    }
   `}
 `;
 
-export const MenuNav = styled.div``;
-
-export const MenuLink = styled.a``;
