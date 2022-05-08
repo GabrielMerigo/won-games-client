@@ -15,8 +15,7 @@ describe('<Menu />', () => {
 
   it('should handle the open/close mobile menu', () => {
     renderWithTheme(<Menu />);
-
-    // Selecionar o nosso MenuFull
+    // Verificar se o menu existe em tela
     const fullMenuElement = screen.getByRole('navigation', { hidden: true })
     // Verificar se o menu esta escondido
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
@@ -24,12 +23,15 @@ describe('<Menu />', () => {
       opacity: 0
     })
 
-    // Clicar no botão de abrir o menu e verificar se ele abriu
+    // quando clicar no botão de abrir o menu, verificar se ele abriu
     fireEvent.click(screen.getByLabelText(/open menu/i))
     expect(fullMenuElement.getAttribute('aria-hidden')).toBe('false')
+    expect(fullMenuElement).toHaveStyle({ opacity: 1 })
 
-    // Clicar no botão de fechar o menu e verificar se ele fechou
-
+    // quando clicar no botão de fechar o menu, verificar se ele fechou
+    fireEvent.click(screen.getByLabelText(/close menu/i))
+    expect(fullMenuElement.getAttribute('aria-hidden')).toBe('true')
+    expect(fullMenuElement).toHaveStyle({ opacity: 0 })
   })
 })
 

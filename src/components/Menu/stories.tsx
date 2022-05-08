@@ -7,3 +7,10 @@ export default {
 } as Meta
 
 export const MenuStory: Story = () => <Menu />
+
+MenuStory.parameters = {
+  layout: 'fullscreen',
+  backgrounds: {
+    default: 'dark'
+  }
+}
