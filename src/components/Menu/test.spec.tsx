@@ -5,7 +5,7 @@ import Menu from './'
 
 describe('<Menu />', () => {
   it('render test the menu', () => {
-    renderWithTheme(<Menu />)
+    renderWithTheme(<Menu />);
 
     expect(screen.getByRole('img', { name: /Won Games/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument();
