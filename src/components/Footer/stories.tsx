@@ -6,4 +6,9 @@ export default {
   component: Footer
 } as Meta
 
-export const Footer: Story = () => <Footer />
+export const FooterStory: Story = () => (
+  <div style={{ maxWidth: '130rem', margin: '0 auto' }}>
+    <Footer />
+  </div>
+)
+
