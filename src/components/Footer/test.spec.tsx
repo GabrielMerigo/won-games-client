@@ -1,12 +1,14 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
+import { renderWithTheme } from '../../utils/tests/helpers';
 
 import Footer from './'
 
 describe('<Footer />', () => {
   it('should render 4 columns topics', () => {
-    // verificar se tem coluna de contact
-    // verificar se tem coluna de follow US
-    // verificar se tem coluna de links
-    // verificar se tem coluna de locaton
+    renderWithTheme(<Footer />)
+    expect(screen.getByRole('heading', { name: /Contact/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /follow us/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Links/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Location/i })).toBeInTheDocument();
   })
-})
+});
