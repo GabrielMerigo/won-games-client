@@ -15,4 +15,10 @@ describe('<Ribbon />', () => {
 
     expect(screen.getByText(/Best Seller/i)).toHaveStyle({ backgroundColor: '#F231A5' })
   })
+
+  it('should render with secondary color', () => {
+    renderWithTheme(<Ribbon color="secondary">Best Seller</Ribbon>);
+
+    expect(screen.getByText(/Best Seller/i)).toHaveStyle({ backgroundColor: '#3CD3C1' })
+  })
 })
