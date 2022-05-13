@@ -6,4 +6,4 @@ export default {
   component: Ribbon
 } as Meta
 
-export const Ribbon: Story = () => <Ribbon />
+export const RibbonStory: Story = () => <Ribbon>Ribbon</Ribbon>
