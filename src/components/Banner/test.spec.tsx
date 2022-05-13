@@ -13,12 +13,14 @@ describe('<Banner />', () => {
       buttonLink: '/games/defy-death'
     }
 
-    renderWithTheme(<Banner {...args} />)
+    const { container } = renderWithTheme(<Banner {...args} />)
 
     expect(screen.getByRole('img')).toHaveAttribute('src', 'link');
     expect(screen.getByRole('img')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Defy death/i })).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /Play the new CrashLands season/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Buy now/i })).toBeInTheDocument()
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
