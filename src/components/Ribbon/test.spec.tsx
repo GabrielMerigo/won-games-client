@@ -28,4 +28,11 @@ describe('<Ribbon />', () => {
     expect(screen.getByText(/Best Seller/i))
       .toHaveStyle({ height: '3.6rem', fontSize: '1.4rem' })
   })
+
+  it('should render with small size', () => {
+    renderWithTheme(<Ribbon size="small">Best Seller</Ribbon>);
+
+    expect(screen.getByText(/Best Seller/i))
+      .toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
+  })
 })
