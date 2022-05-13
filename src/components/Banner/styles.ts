@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import media from 'styled-media-query';
 
 export const Wrapper = styled.main``
 
@@ -11,6 +12,13 @@ export const Image = styled.div<ImageProps>`
     width: 100%;
     height: 23rem;
     background-color: ${theme.colors.lightGray};
+    background-image: url(${src});
+    background-position: center center;
+    background-size: cover;
+
+    ${media.greaterThan('medium')`
+      height: 58rem;
+    `}
   `}
 `
 

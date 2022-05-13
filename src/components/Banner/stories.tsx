@@ -14,6 +14,9 @@ export default {
   },
   parameters: {
     layout: 'fullscreen',
+    viewport: {
+      defaultViewport: 'mobile1'
+    }
   }
 } as Meta
 
