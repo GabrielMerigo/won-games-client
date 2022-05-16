@@ -20,6 +20,7 @@ export const RibbonStory: Story<RibbonProps> = (args) => (
       width: '40rem',
       height: '25rem',
       position: 'relative',
+      margin: '0',
       backgroundColor: '#888'
     }}
   >
