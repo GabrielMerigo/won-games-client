@@ -26,12 +26,16 @@ describe('<Banner />', () => {
   })
 
   it('should render a Ribbon', () => {
-    renderWithTheme(<Banner {...args} ribbon="My Ribbon" ribbonSize="normal" ribbonColor="secondary" />);
+    renderWithTheme(<Banner {...args} ribbon="My Ribbon" ribbonSize="small" ribbonColor="secondary" />);
 
     const ribbon = screen.getByText(/My Ribbon/i);
 
     expect(ribbon).toBeInTheDocument()
     expect(ribbon).toHaveStyle({ backgroundColor: '#3CD3C1' });
     expect(ribbon).toHaveStyle({ height: '2.6rem', fontSize: '1.2rem' })
+  });
+
+  it('should render a normal Ribbon with secondary color as default', () => {
+    renderWithTheme(<Banner {...args} ribbon="20% OFF" />);
   });
 })
