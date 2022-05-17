@@ -9,6 +9,7 @@ export default {
     subtitle: "Come see john's new adventures",
     buttonLabel: 'Buy now',
     buttonLink: '/rdr2',
+    backgroundImage: '/img/banner.svg'
   }
 } as Meta
 
