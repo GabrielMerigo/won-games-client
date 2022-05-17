@@ -1,8 +1,15 @@
-import * as S from './styles'
+import * as S from './styles';
 
-const Highlight = () => (
+export type HighlightProps = {
+  title: string,
+  subtitle: string
+}
+
+
+const Highlight = ({ title, subtitle }: HighlightProps) => (
   <S.Wrapper>
-    <h1>Highlight</h1>
+    <S.Title>{title}</S.Title>
+    <S.Subtitle>{subtitle}</S.Subtitle>
   </S.Wrapper>
 )
 
