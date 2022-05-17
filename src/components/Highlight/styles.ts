@@ -1,15 +1,31 @@
 import styled, { css } from 'styled-components'
 import media from 'styled-media-query'
 import { HighlightProps } from '.'
+import * as S from './styles';
 
 type WrapperProps = Pick<HighlightProps, 'backgroundImage' | 'alignment'>
 
 const wrapperModifers = {
   right: () => css`
    grid-template-areas: 'floatimage content';
+   grid-template-columns: 1.3fr 2fr;
+
+    ${S.Content}{
+      text-align: right;
+    };
   `,
   left: () => css`
     grid-template-areas: 'content floatimage';
+    grid-template-columns: 2fr 1.3fr;
+
+    ${S.Content}{
+      text-align: left;
+    };
+
+    ${S.FloatImage}{
+      justify-self: end;
+      margin-right: 1rem;
+    };
   `
 }
 
@@ -43,7 +59,6 @@ export const Wrapper = styled.section<WrapperProps>`
 export const Content = styled.div`
   ${({ theme }) => css`
     z-index: ${theme.layers.base};
-    text-align: right;
     padding: ${theme.spacings.xsmall};
     grid-area: content;
 
