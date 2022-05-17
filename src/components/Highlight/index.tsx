@@ -10,9 +10,11 @@ export type HighlightProps = {
 
 const Highlight = ({ title, subtitle, buttonLabel, buttonLink }: HighlightProps) => (
   <S.Wrapper>
-    <S.Title>{title}</S.Title>
-    <S.Subtitle>{subtitle}</S.Subtitle>
-    <Button as="a" href={buttonLink}>{buttonLabel}</Button>
+    <S.Content>
+      <S.Title>{title}</S.Title>
+      <S.Subtitle>{subtitle}</S.Subtitle>
+      <Button as="a" href={buttonLink}>{buttonLabel}</Button>
+    </S.Content>
   </S.Wrapper>
 )
 
