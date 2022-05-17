@@ -1,5 +1,4 @@
 import { Meta, Story } from '@storybook/react';
-import { useState } from 'react';
 import Banner, { BannerProps } from '.';
 
 export default {
@@ -13,10 +12,7 @@ export default {
     buttonLink: '/games/defy-death'
   },
   parameters: {
-    layout: 'fullscreen',
-    viewport: {
-      defaultViewport: 'mobile1'
-    }
+    layout: 'fullscreen'
   }
 } as Meta
 

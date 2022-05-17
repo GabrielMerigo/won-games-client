@@ -8,7 +8,7 @@ export type BannerProps = {
   subtitle: string
   buttonLabel: string
   buttonLink: string
-  ribbon?: React.ReactNode,
+  ribbon?: string,
   ribbonSize?: RibbonSizes,
   ribbonColor?: RibbonColors
 }
@@ -24,7 +24,7 @@ const Banner = ({
   ribbonSize = 'normal'
 }: BannerProps) => (
   <S.Wrapper>
-    { !!ribbon && (<Ribbon size={ribbonSize} color={ribbonColor}>{ribbon}</Ribbon>)}
+    {!!ribbon && <Ribbon size={ribbonSize} color={ribbonColor}>{ribbon}</Ribbon>}
 
     <S.Image src={img} role="img" aria-label={title}></S.Image>
     <S.Caption>

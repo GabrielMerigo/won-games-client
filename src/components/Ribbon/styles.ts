@@ -56,6 +56,7 @@ export const Wrapper = styled.div<RibbonProps>`
       border-left-width: 0rem;
       border-bottom-width: 0rem;
     }
+
     ${!!color && wrapperModifiers.color(theme, color)};
     ${!!size && wrapperModifiers[size](theme)};
   `}
