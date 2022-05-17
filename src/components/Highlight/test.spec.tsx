@@ -38,4 +38,23 @@ describe('<Highlight />', () => {
       'src', '/float-image.png'
     )
   });
+
+  it('should render align right by default', () => {
+    const { container } = renderWithTheme(<Highlight {...props} />);
+
+
+    expect(container.firstChild).toHaveStyle({
+      'grid-template-areas': "'floatimage content'"
+    })
+  });
+
+  it('should render align left', () => {
+    const { container, debug } = renderWithTheme(<Highlight {...props} alignment="left" />);
+
+    debug(container);
+
+    expect(container.firstChild).toHaveStyle({
+      'grid-template-areas': "'content floatimage'"
+    })
+  });
 })
