@@ -14,9 +14,10 @@ describe('<GameCard />', () => {
   it('should render correctly', () => {
     renderWithTheme(<GameCard {...props} />);
 
-    expect(screen.getByRole('heading', { name: /Population Zero/i })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /Rockstar Games/i })).toBeInTheDocument()
-    expect(screen.getByRole('img', { name: /Population Zero/i })).toBeInTheDocument()
-    expect(screen.getByText('R$ 230,00')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: props.title })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: props.developer })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute('src', props.img)
+    expect(screen.getByText(props.price)).toBeInTheDocument()
+    expect(screen.getByLabelText(/Add to wishlist/i)).toBeInTheDocument()
   })
 })
