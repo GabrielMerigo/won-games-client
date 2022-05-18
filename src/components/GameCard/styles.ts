@@ -78,6 +78,7 @@ export const FavButton = styled.div`
     right: 0;
     top: -0.5rem;
     cursor: pointer;
+
     svg {
       width: 2.5rem;
     }
@@ -105,7 +106,6 @@ const priceModifiers = {
     border-radius: ${theme.border.radius};
     margin-right: calc(${theme.spacings.xxsmall} / 2);
   `,
-
   promotional: (theme: DefaultTheme) => css`
     color: ${theme.colors.gray};
     text-decoration: line-through;

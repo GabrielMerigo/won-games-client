@@ -8,7 +8,8 @@ export default {
     title: "Population Zero",
     developer: "Rockstar Games",
     img: "/img/banner-game-card.jpg",
-    price: "R$ 230,00"
+    price: "R$ 230,00",
+    promotionalPrice: "R$ 200,00"
   }
 } as Meta
 
