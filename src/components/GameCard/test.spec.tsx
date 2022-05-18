@@ -14,13 +14,9 @@ describe('<GameCard />', () => {
   it('should render correctly', () => {
     renderWithTheme(<GameCard {...props} />);
 
-
-    //Verificar se o title foi impresso
-
-    //Verificar se o developer foi impresso
-
-    //verificar se o img foi impresso
-
-    //verificar se o price foi impresso
+    expect(screen.getByRole('heading', { name: /Population Zero/i })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /Rockstar Games/i })).toBeInTheDocument()
+    expect(screen.getByRole('img', { name: /Population Zero/i })).toBeInTheDocument()
+    expect(screen.getByText('R$ 230,00')).toBeInTheDocument()
   })
 })

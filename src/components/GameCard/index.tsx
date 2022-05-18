@@ -1,4 +1,4 @@
-import Button from 'components/Button';
+import Button from '../../components/Button';
 import { AddShoppingCart, FavoriteBorder } from 'styled-icons/material-outlined';
 import * as S from './styles'
 
