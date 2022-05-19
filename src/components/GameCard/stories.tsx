@@ -10,8 +10,11 @@ export default {
     img: "/img/banner-game-card.jpg",
     price: "R$ 230,00",
     promotionalPrice: "R$ 200,00"
+  },
+  argTypes: {
+    onFav: { action: 'Clicked' }
   }
-} as Meta
+}
 
 export const GameCardStory: Story<GameCardProps> = (args) => (
   <div style={{ width: '30rem' }}>
