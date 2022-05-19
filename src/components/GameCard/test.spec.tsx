@@ -63,5 +63,6 @@ describe('<GameCard />', () => {
       'background-color': '#F231A5'
     })
 
+    expect(screen.getByText(/20% 0FF/i)).toBeInTheDocument()
   });
 })
