@@ -9,7 +9,8 @@ export default {
     developer: "Rockstar Games",
     img: "/img/banner-game-card.jpg",
     price: "R$ 230,00",
-    promotionalPrice: "R$ 200,00"
+    promotionalPrice: "R$ 200,00",
+    ribbon: 'Best Seller'
   },
   argTypes: {
     onFav: { action: 'Clicked' }
