@@ -52,7 +52,6 @@ describe('<GameCard />', () => {
 
     fireEvent.click(screen.getAllByRole('button')[0])
 
-    expect(onFav).toBeCalled()
-
+    expect(onFav).toBeCalled();
   });
 })
