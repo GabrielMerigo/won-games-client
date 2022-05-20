@@ -29,7 +29,7 @@ const GameCard = ({
   ribbonSize
 }: GameCardProps) => (
   <S.Wrapper>
-    <Ribbon color={ribbonColor} size={ribbonSize}>{ribbon}</Ribbon>
+    {!!ribbon && <Ribbon color={ribbonColor} size={ribbonSize}>{ribbon}</Ribbon>}
     <S.ImageBox>
       <img src={img} alt={title} />
     </S.ImageBox>
