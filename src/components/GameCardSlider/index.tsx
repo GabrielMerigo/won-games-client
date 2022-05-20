@@ -16,14 +16,7 @@ const settings: SliderSettings = {
   lazyLoad: 'ondemand',
   responsive: [
     {
-      breakpoint: 1175,
-      settings: {
-        arrows: false,
-        slidesToShow: 3.2
-      }
-    },
-    {
-      breakpoint: 1024,
+      breakpoint: 980,
       settings: {
         arrows: false,
         slidesToShow: 2.2
