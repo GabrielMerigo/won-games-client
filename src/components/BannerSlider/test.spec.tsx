@@ -36,4 +36,10 @@ describe('<BannerSlider />', () => {
     expect(screen.getByRole('heading', { name: /dafy death 1/i, hidden: false  })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /dafy death 2/i, hidden: true  })).toBeInTheDocument();
   })
+
+  it('should render with the dots', () => {
+    const { container } = renderWithTheme(<BannerSlider items={items}></BannerSlider>);
+
+    expect(container.querySelectorAll('.slick-dots')).toBeInTheDocument();
+  })
 })
