@@ -3,9 +3,9 @@
 </p>
 
 <p align="center">
-  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/GabrielMeigo/Won-Games?color=rgba(240, 98, 192)">
-
-  <img alt="Contributors" src="https://img.shields.io/github/contributors/GabrielMeigo/Won-Games?color=rgba(240, 98, 192)">
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/gabrielmerigo/Won-Games?color=rgba(240, 98, 192)">
+  
+  <img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/w/gabrielmerigo/Won-Games?color=rgba(240, 98, 192)">
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361?color=rgba(240, 98, 192)">
 </p>
