@@ -10,7 +10,7 @@
   <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361?color=rgba(240, 98, 192)">
 </p>
 
-## 🙋‍♂ Apresentação:
+## 🙋‍♂ Apresentação
 
 Front-end do E-commerce Won Games, feito em Next, onde usuários podem se cadastrar e comprar jogos, montar suas wishlist e mais.
 
