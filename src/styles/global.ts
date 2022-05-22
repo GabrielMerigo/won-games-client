@@ -67,7 +67,8 @@ const GlobalStyle: GlobalStyleComponent<GlobalStylesProps, DefaultTheme> = creat
     body{
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-      ${removeBg && css`
+
+      ${!removeBg && css`
         background-color: ${theme.colors.mainBg};
       `}
     }

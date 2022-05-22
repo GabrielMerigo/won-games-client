@@ -5,7 +5,8 @@ import Footer from './'
 
 describe('<Footer />', () => {
   it('should render 4 columns topics', () => {
-    renderWithTheme(<Footer />)
+    renderWithTheme(<Footer />);
+
     expect(screen.getByRole('heading', { name: /Contact/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /follow us/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Links/i })).toBeInTheDocument();

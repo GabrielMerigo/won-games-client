@@ -1,5 +1,7 @@
+import Home from '../templates/Home'
 
-
-export default function Home() {
-  return <h1>Won Games</h1>
+export default function Index() {
+  return (
+    <Home />
+  );
 }
