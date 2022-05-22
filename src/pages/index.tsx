@@ -1,5 +1,5 @@
-import Main from 'components/Main'
+
 
 export default function Home() {
-  return <Main />
+  return <h1>Won Games</h1>
 }

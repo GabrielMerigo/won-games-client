@@ -11,6 +11,6 @@ export const MenuStory: Story<MenuProps> = (props) => <Menu {...props} />
 MenuStory.parameters = {
   layout: 'fullscreen',
   backgrounds: {
-    default: 'dark'
+    default: 'won-dark'
   }
 }
