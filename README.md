@@ -1,6 +1,16 @@
-# Won Games
+<p align="center">
+  <img  src="White 1.svg">
+</p>
 
-## 🙋‍♂ Apresentação:
+<p align="center">
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/gabrielmerigo/Won-Games?color=rgba(240, 98, 192)">
+  
+  <img alt="Commit Activity" src="https://img.shields.io/github/commit-activity/w/gabrielmerigo/Won-Games?color=rgba(240, 98, 192)">
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361?color=rgba(240, 98, 192)">
+</p>
+
+## 🙋‍♂ Apresentação
 
 Front-end do E-commerce Won Games, feito em Next, onde usuários podem se cadastrar e comprar jogos, montar suas wishlist e mais.
 
@@ -24,8 +34,6 @@ PS: Clique [aqui](https://github.com/gabrielitba/Won-Games-Api) para acessar o r
 - **graphql**
 - **joi**
 
-&nbsp;
-
 ## ⚙️ Funcionalidades
 
 Cadastro e autenticação de usuários;
@@ -39,8 +47,6 @@ Criação de Wishlist;
 Filtragem de jogos;
 
 Formulários com validação;
-
-&nbsp;
 
 ## 🔥️ Executando o projeto
 
