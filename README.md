@@ -2,6 +2,14 @@
   <img  src="White 1.svg">
 </p>
 
+<p align="center">
+  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/GabrielMeigo/Won-Games?color=rgba(240, 98, 192)">
+
+  <img alt="Contributors" src="https://img.shields.io/github/contributors/GabrielMeigo/Won-Games?color=rgba(240, 98, 192)">
+
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-%2304D361?color=rgba(240, 98, 192)">
+</p>
+
 ## 🙋‍♂ Apresentação:
 
 Front-end do E-commerce Won Games, feito em Next, onde usuários podem se cadastrar e comprar jogos, montar suas wishlist e mais.
