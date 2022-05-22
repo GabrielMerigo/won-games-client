@@ -34,8 +34,6 @@ PS: Clique [aqui](https://github.com/gabrielitba/Won-Games-Api) para acessar o r
 - **graphql**
 - **joi**
 
-&nbsp;
-
 ## ⚙️ Funcionalidades
 
 Cadastro e autenticação de usuários;
@@ -49,8 +47,6 @@ Criação de Wishlist;
 Filtragem de jogos;
 
 Formulários com validação;
-
-&nbsp;
 
 ## 🔥️ Executando o projeto
 
