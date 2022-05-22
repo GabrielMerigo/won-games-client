@@ -12,8 +12,6 @@ describe("<Container />", () => {
       "max-width": theme.grid.container,
     });
 
-
-
     expect(container.firstChild).toMatchInlineSnapshot(`
       .c0 {
         max-width: 130rem;
