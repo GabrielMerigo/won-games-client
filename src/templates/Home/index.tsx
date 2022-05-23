@@ -3,7 +3,7 @@ import { Container } from '../../components/Container'
 import Menu from '../../components/Menu'
 import Heading from '../../components/Heading'
 
-const Home = () => (
+const Home = ({ heading }: any) => (
   <section>
     <Container>
       <Menu />

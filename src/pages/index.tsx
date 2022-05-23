@@ -1,7 +1,16 @@
 import Home from '../templates/Home'
 
-export default function Index() {
+export default function Index(props: any) {
   return (
-    <Home />
+    <Home {...props} />
   );
+}
+
+export function getStaticProps(){
+
+  return {
+    props: {
+      heading: 'Olha eu aqui'
+    }
+  }
 }
