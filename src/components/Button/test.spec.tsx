@@ -53,4 +53,12 @@ describe('<Button />', () => {
     expect(screen.getByRole('link', { name: /Buy Now/i }))
       .toHaveAttribute('href', '/link')
   });
+
+  it('should render a minimal version', () => {
+    renderWithTheme(<Button minimal>Buy Now</Button>);
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
+      background: 'none'
+    })
+  });
 })

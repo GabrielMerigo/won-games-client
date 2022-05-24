@@ -31,7 +31,7 @@ const Home = ({
   upcomingGames,
   upcomingHighlight,
   upcomingMoreGames
- }: HomeTemplateProps) => (
+ }: any) => (
   <section>
     <Container>
       <Menu />

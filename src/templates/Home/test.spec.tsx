@@ -15,13 +15,13 @@ const props = {
   upcomingGames: [gamesMock[0]],
   upcomingHighlight: highlightMock,
   upcomingMoreGames: [gamesMock[0]],
-  freeGames: [gamesMock[0]],
+  freeGames: [gamesMock[0], gamesMock[1]],
   freeHighlight: highlightMock
 }
 
 describe('<Home />', () => {
   it('should render menu and footer', () => {
-    renderWithTheme(<Home {...props} />);
+    renderWithTheme(<Home />);
 
     expect(screen.getByLabelText(/open menu/i)).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Contact/i })).toBeInTheDocument();

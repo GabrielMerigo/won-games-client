@@ -30,6 +30,9 @@ const wrappersModifers = {
         margin-left: ${theme.spacings.xxsmall};
       }
     }
+  `,
+  minimal: (theme: DefaultTheme) => css`
+    background: none;
   `
 }
 
