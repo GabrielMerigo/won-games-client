@@ -9,6 +9,7 @@
     "build-production": "cross-env NODE_ENV=production yarn build",
     "lint": "eslint src --max-warnings=0",
     "test": "jest",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "test:watch": "yarn test --watch",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6007",
@@ -40,7 +41,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@storybook/addon-essentials": "^6.4.19",
+    "@storybook/addon-essentials": "^6.5.5",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "@testing-library/jest-dom": "^5.16.2",
