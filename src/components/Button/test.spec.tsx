@@ -64,7 +64,5 @@ describe('<Button />', () => {
         modifier: ':hover'
       }
     )
-
-
   });
 })
