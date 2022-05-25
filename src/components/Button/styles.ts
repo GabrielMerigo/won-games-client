@@ -33,11 +33,12 @@ const wrappersModifers = {
   `,
   minimal: (theme: DefaultTheme) => css`
     background: none;
+    color: ${theme.colors.primary};
   `
 }
 
 export const Wrapper = styled.button<WrapperProps>`
-  ${({ theme, size, fullWidth, hasIcon }) => css`
+  ${({ theme, size, fullWidth, hasIcon, minimal }) => css`
     background: linear-gradient(180deg, #ff5f5f 0%, #f062c0);
     display: inline-flex;
     align-items: center;
@@ -50,11 +51,12 @@ export const Wrapper = styled.button<WrapperProps>`
     cursor: pointer;
 
     &:hover{
-      background: linear-gradient(180deg, #e35565 0%, #d958a6 50%)
+      background: ${ minimal ? 'none' : `linear-gradient(180deg, #e35565 0%, #d958a6 50%)`};
     }
 
     ${!!size && wrappersModifers[size](theme) }
-    ${!!fullWidth && wrappersModifers.fullWidth()}
+    ${fullWidth && wrappersModifers.fullWidth()}
     ${!!hasIcon &&  wrappersModifers.withIcon(theme)}
+    ${minimal &&  wrappersModifers.minimal(theme)}
   `}
 `
