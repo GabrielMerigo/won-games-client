@@ -8,6 +8,7 @@ import Highlight, { HighlightProps } from '../../components/Highlight'
 import BannerSlider from '../../components/BannerSlider'
 import GameCardSlider from '../../components/GameCardSlider'
 import * as S from './styles'
+import io from 'socket.io-client';
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -31,63 +32,77 @@ const Home = ({
   upcomingGames,
   upcomingHighlight,
   upcomingMoreGames
- }: any) => (
-  <section>
-    <Container>
-      <Menu />
-      <S.SectionBanner>
-        <BannerSlider items={banners} />
-      </S.SectionBanner>
-    </Container>
+ }: any) => {
+  const socket = io('http://localhost:4000');
 
-    <S.SectionNews>
+  socket.on('infoEvent', (receivedInfo) => {
+    console.log(receivedInfo)
+  })
+
+  function clickButton(){
+    socket.emit('infoEvent', 'hello realtime connecters users');
+    console.log('teste')
+  }
+
+  return (
+    <section>
+      <button onClick={clickButton}>tESTE</button>
       <Container>
-        <Heading size="small" lineLeft lineColor="secondary" color="black">
-          New Release
-        </Heading>
-        <GameCardSlider items={newGames} color="black" />
+        <Menu />
+        <S.SectionBanner>
+          <BannerSlider items={banners} />
+        </S.SectionBanner>
       </Container>
-    </S.SectionNews>
 
-    <S.SectionMostPopular>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Most Popular
-        </Heading>
-        <Highlight {...mostPopularHighlight} />
-        <GameCardSlider items={mostPopularGames} />
-      </Container>
-    </S.SectionMostPopular>
+      <S.SectionNews>
+        <Container>
+          <Heading size="small" lineLeft lineColor="secondary" color="black">
+            New Release
+          </Heading>
+          <GameCardSlider items={newGames} color="black" />
+        </Container>
+      </S.SectionNews>
 
-    <S.SectionUpComing>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Up Coming
-        </Heading>
+      <S.SectionMostPopular>
+        <Container>
+          <Heading size="small" lineLeft lineColor="secondary">
+            Most Popular
+          </Heading>
+          <Highlight {...mostPopularHighlight} />
+          <GameCardSlider items={mostPopularGames} />
+        </Container>
+      </S.SectionMostPopular>
 
-        <GameCardSlider items={upcomingGames} color="white" />
-        <Highlight {...upcomingHighlight} />
-        <GameCardSlider items={upcomingMoreGames} color="white" />
-      </Container>
-    </S.SectionUpComing>
+      <S.SectionUpComing>
+        <Container>
+          <Heading size="small" lineLeft lineColor="secondary">
+            Up Coming
+          </Heading>
 
-    <S.SectionFreeGames>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Free Games
-        </Heading>
+          <GameCardSlider items={upcomingGames} color="white" />
+          <Highlight {...upcomingHighlight} />
+          <GameCardSlider items={upcomingMoreGames} color="white" />
+        </Container>
+      </S.SectionUpComing>
 
-        <Highlight {...freeHighlight} />
-        <GameCardSlider items={freeGames} color="white" />
-      </Container>
-    </S.SectionFreeGames>
+      <S.SectionFreeGames>
+        <Container>
+          <Heading size="small" lineLeft lineColor="secondary">
+            Free Games
+          </Heading>
 
-    <S.SectionFooter>
-      <Container>
-        <Footer />
-      </Container>
-    </S.SectionFooter>
-  </section>
-)
+          <Highlight {...freeHighlight} />
+          <GameCardSlider items={freeGames} color="white" />
+        </Container>
+      </S.SectionFreeGames>
+
+      <S.SectionFooter>
+        <Container>
+          <Footer />
+        </Container>
+      </S.SectionFooter>
+    </section>
+  )
+}
 
 export default Home
