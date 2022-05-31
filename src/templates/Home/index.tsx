@@ -32,77 +32,63 @@ const Home = ({
   upcomingGames,
   upcomingHighlight,
   upcomingMoreGames
- }: any) => {
-  const socket = io('http://localhost:4000');
+}: any) => (
+  <section>
+    <Container>
+      <Menu />
+      <S.SectionBanner>
+        <BannerSlider items={banners} />
+      </S.SectionBanner>
+    </Container>
 
-  socket.on('infoEvent', (receivedInfo) => {
-    console.log(receivedInfo)
-  })
-
-  function clickButton(){
-    socket.emit('infoEvent', 'hello realtime connecters users');
-    console.log('teste')
-  }
-
-  return (
-    <section>
-      <button onClick={clickButton}>tESTE</button>
+    <S.SectionNews>
       <Container>
-        <Menu />
-        <S.SectionBanner>
-          <BannerSlider items={banners} />
-        </S.SectionBanner>
+        <Heading size="small" lineLeft lineColor="secondary" color="black">
+          New Release
+        </Heading>
+        <GameCardSlider items={newGames} color="black" />
       </Container>
+    </S.SectionNews>
 
-      <S.SectionNews>
-        <Container>
-          <Heading size="small" lineLeft lineColor="secondary" color="black">
-            New Release
-          </Heading>
-          <GameCardSlider items={newGames} color="black" />
-        </Container>
-      </S.SectionNews>
+    <S.SectionMostPopular>
+      <Container>
+        <Heading size="small" lineLeft lineColor="secondary">
+          Most Popular
+        </Heading>
+        <Highlight {...mostPopularHighlight} />
+        <GameCardSlider items={mostPopularGames} />
+      </Container>
+    </S.SectionMostPopular>
 
-      <S.SectionMostPopular>
-        <Container>
-          <Heading size="small" lineLeft lineColor="secondary">
-            Most Popular
-          </Heading>
-          <Highlight {...mostPopularHighlight} />
-          <GameCardSlider items={mostPopularGames} />
-        </Container>
-      </S.SectionMostPopular>
+    <S.SectionUpComing>
+      <Container>
+        <Heading size="small" lineLeft lineColor="secondary">
+          Up Coming
+        </Heading>
 
-      <S.SectionUpComing>
-        <Container>
-          <Heading size="small" lineLeft lineColor="secondary">
-            Up Coming
-          </Heading>
+        <GameCardSlider items={upcomingGames} color="white" />
+        <Highlight {...upcomingHighlight} />
+        <GameCardSlider items={upcomingMoreGames} color="white" />
+      </Container>
+    </S.SectionUpComing>
 
-          <GameCardSlider items={upcomingGames} color="white" />
-          <Highlight {...upcomingHighlight} />
-          <GameCardSlider items={upcomingMoreGames} color="white" />
-        </Container>
-      </S.SectionUpComing>
+    <S.SectionFreeGames>
+      <Container>
+        <Heading size="small" lineLeft lineColor="secondary">
+          Free Games
+        </Heading>
 
-      <S.SectionFreeGames>
-        <Container>
-          <Heading size="small" lineLeft lineColor="secondary">
-            Free Games
-          </Heading>
+        <Highlight {...freeHighlight} />
+        <GameCardSlider items={freeGames} color="white" />
+      </Container>
+    </S.SectionFreeGames>
 
-          <Highlight {...freeHighlight} />
-          <GameCardSlider items={freeGames} color="white" />
-        </Container>
-      </S.SectionFreeGames>
-
-      <S.SectionFooter>
-        <Container>
-          <Footer />
-        </Container>
-      </S.SectionFooter>
-    </section>
-  )
-}
+    <S.SectionFooter>
+      <Container>
+        <Footer />
+      </Container>
+    </S.SectionFooter>
+  </section>
+)
 
 export default Home

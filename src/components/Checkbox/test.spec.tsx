@@ -22,5 +22,13 @@ describe('<Checkbox />', () => {
 
     expect(screen.getByRole('checkbox')).toHaveAttribute('id', ''); // Verifica a partir do atributo do input
     expect(screen.queryByLabelText(/checkbox label/i)).not.toBeInTheDocument(); // Se verifica se há a label no documento
-  })
+  });
+
+  it("should render with black label", () => {
+    renderWithTheme(<Checkbox label="checkbox label" labelFor="check" labelColor="black"/>)
+
+    expect(screen.getByText(/checkbox label/i)).toHaveStyle({
+      color: '#030517'
+    })
+  });
 })
