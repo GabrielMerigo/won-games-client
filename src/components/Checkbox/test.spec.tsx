@@ -1,4 +1,6 @@
-import { screen } from '@testing-library/react'
+
+import { userEvent } from '@storybook/testing-library'
+import { screen, waitFor } from '@testing-library/react'
 import { renderWithTheme } from '../../utils/tests/helpers'
 
 import Checkbox from './'
@@ -31,4 +33,50 @@ describe('<Checkbox />', () => {
       color: '#030517'
     })
   });
+
+  it('should dispatch onCheck when status changes', async () => {
+    const onCheck = jest.fn();
+
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} />);
+
+    expect(onCheck).not.toHaveBeenCalled();
+    userEvent.click(screen.getByRole('checkbox'));
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1)
+    })
+  });
+
+  it('should dispatch onCheck when status changes', async () => {
+    const onCheck = jest.fn();
+
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} />);
+
+    expect(onCheck).not.toHaveBeenCalled();
+    userEvent.click(screen.getByRole('checkbox'));
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1);
+    })
+
+    expect(onCheck).toHaveBeenCalledWith(true)
+  });
+
+  it('should dispatch onCheck when status changes', async () => {
+    const onCheck = jest.fn();
+
+    renderWithTheme(<Checkbox label="Checkbox" onCheck={onCheck} isChecked />);
+    userEvent.click(screen.getByRole('checkbox'));
+    await waitFor(() => {
+      expect(onCheck).toHaveBeenCalledTimes(1);
+    })
+
+    expect(onCheck).toHaveBeenCalledWith(false)
+  });
+
+  it('should be accessible with tab', () => {
+    renderWithTheme(<Checkbox label="Checkbox" isChecked />);
+    expect(document.body).toHaveFocus();
+    userEvent.tab();
+    expect(screen.getByRole('checkbox')).toHaveFocus();
+  })
+
 })
