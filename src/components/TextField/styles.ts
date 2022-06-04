@@ -9,6 +9,7 @@ export const InputWrapper = styled.div`
     padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
+
     &:focus-within {
       box-shadow: 0 0 0.5rem ${theme.colors.primary};
     }
@@ -35,5 +36,19 @@ export const Label = styled.label`
     cursor: pointer;
   `}
 `
+
+export const Icon = styled.div`
+  ${({ theme }) => css`
+    width: 3rem;
+    color: ${theme.colors.gray};
+    margin-right: ${theme.spacings.xxsmall};
+    margin-top: 0.6rem;
+
+    & > svg {
+      width: 100%;
+    }
+  `}
+`
+
 
 export const Wrapper = styled.div``
