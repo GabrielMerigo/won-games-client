@@ -22,7 +22,6 @@ describe('<TextField />', () => {
 
   it('Renders with placeholder', () => {
     renderWithTheme(<TextField placeholder="hey you" />)
-
     expect(screen.getByPlaceholderText('hey you')).toBeInTheDocument()
   })
 
@@ -67,5 +66,35 @@ describe('<TextField />', () => {
     );
 
     expect(screen.getByTestId('icon')).toBeInTheDocument();
+  });
+
+  it('should render icon on left side by default ', () => {
+    renderWithTheme(
+      <TextField id="Field" icon={<Email data-testid="icon" />} />
+    );
+
+    expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({
+      left: 0,
+      'margin-left': '10px'
+    });
+
+    expect(screen.getByRole('textbox')).toHaveStyle({
+      'margin-left': '30px'
+    });
+  })
+
+  it('should render icon on right side ', () => {
+    renderWithTheme(
+      <TextField iconPosition="right" id="Field" icon={<Email data-testid="icon" />} />
+    );
+
+    expect(screen.getByTestId(/icon/i).parentElement).toHaveStyle({
+      right: 0,
+      'margin-right': '15px'
+    });
+
+    expect(screen.getByRole('textbox')).toHaveStyle({
+      'margin-right': '30px'
+    });
   })
 })
