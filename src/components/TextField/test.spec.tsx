@@ -6,6 +6,7 @@ import { Email } from '@styled-icons/material-outlined/Email';
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import TextField from '.'
+import { render } from 'react-dom';
 
 describe('<TextField />', () => {
   it('Renders with Label', () => {
@@ -96,5 +97,49 @@ describe('<TextField />', () => {
     expect(screen.getByRole('textbox')).toHaveStyle({
       'margin-right': '30px'
     });
+  })
+
+
+  it("shouldn't use button when the one is disabled", async () => {
+    const onInput = jest.fn();
+
+    renderWithTheme(
+      <TextField
+        onInput={onInput}
+        label="TextField"
+        labelFor="TextField"
+        id="TextField"
+        disabled
+      />
+    );
+
+    const input = screen.getByRole('textbox');
+    expect(input).toBeDisabled();
+
+    const text = 'This is my new Text';
+    userEvent.type(input, text);
+
+    await waitFor(() => {
+      expect(input).not.toHaveValue();
+    });
+
+    expect(onInput).not.toHaveBeenCalled();
+  })
+
+
+  it('Renders with error', () => {
+    const onInput = jest.fn();
+
+    const { container } = renderWithTheme(<TextField
+      label="TextField"
+      labelFor="TextField"
+      id="TextField"
+      error="error"
+    />)
+
+
+    expect(screen.getByText('error')).toBeInTheDocument();
+
+    expect(container.firstChild).toMatchSnapshot();
   })
 })

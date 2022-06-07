@@ -1,51 +1,52 @@
-import styled, { css } from 'styled-components'
-import { RadioProps } from '.'
+import { Story, Meta } from '@storybook/react/types-6-0'
+import Radio, { RadioProps } from '.'
 
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
+export default {
+  title: 'Form/Radio',
+  component: Radio,
+  parameters: {
+    layout: 'fullscreen',
+    backgrounds: {
+      default: 'won-dark'
+    }
+  },
+  argTypes: {
+    onCheck: { action: 'checked' }
+  }
+} as Meta
 
-export const Input = styled.input`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    appearance: none;
-    width: 1.8rem;
-    height: 1.8rem;
-    border: 0.2rem solid ${theme.colors.primary};
-    border-radius: 50%;
-    background: transparent;
-    transition: background ${theme.transition.fast};
-    outline: none;
-    cursor: pointer;
-    &:focus {
-      box-shadow: 0 0 0.5rem ${theme.colors.primary};
-    }
-    &:before {
-      content: '';
-      width: 0.8rem;
-      height: 0.8rem;
-      border-radius: 50%;
-      background: ${theme.colors.primary};
-      transition: opacity ${theme.transition.fast};
-      opacity: 0;
-      position: absolute;
-    }
-    &:checked {
-      &:before {
-        opacity: 1;
-      }
-    }
-  `}
-`
-
-export const Label = styled.label<Pick<RadioProps, 'labelColor'>>`
-  ${({ theme, labelColor }) => css`
-    padding-left: ${theme.spacings.xxsmall};
-    color: ${theme.colors[labelColor!]};
-    line-height: 1;
-    cursor: pointer;
-  `}
-`;
+export const Default: Story<RadioProps> = (args) => (
+  <>
+    <div style={{ padding: 10 }}>
+      <Radio
+        label="primeiro"
+        labelFor="primeiro"
+        id="primeiro"
+        name="nome"
+        value="primeiro"
+        defaultChecked
+        {...args}
+      />
+    </div>
+    <div style={{ padding: 10 }}>
+      <Radio
+        label="segundo"
+        labelFor="segundo"
+        id="segundo"
+        name="nome"
+        value="segundo"
+        {...args}
+      />
+    </div>
+    <div style={{ padding: 10 }}>
+      <Radio
+        label="terceiro"
+        labelFor="terceiro"
+        id="terceiro"
+        name="nome"
+        value="terceiro"
+        {...args}
+      />
+    </div>
+  </>
+)
