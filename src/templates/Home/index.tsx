@@ -8,7 +8,6 @@ import Highlight, { HighlightProps } from '../../components/Highlight'
 import BannerSlider from '../../components/BannerSlider'
 import GameCardSlider from '../../components/GameCardSlider'
 import * as S from './styles'
-import io from 'socket.io-client';
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
