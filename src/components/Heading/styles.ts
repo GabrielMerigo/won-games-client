@@ -34,6 +34,9 @@ const wrapperModifiers = {
       font-size: ${theme.font.sizes.large};
     `}
   `,
+  huge: (theme: DefaultTheme) => css`
+    font-size: ${theme.font.sizes.huge};
+  `,
 }
 
 export const Wrapper = styled.h2<HeadingProps>`

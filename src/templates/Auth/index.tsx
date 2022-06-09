@@ -11,11 +11,10 @@ const Auth = ({ title,  children }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
-        <Logo />
-
+        <Logo id="banner" />
         <div>
-          <Heading>Seus jogos favoritos em um só lugar</Heading>
-          <S.Subtitle> A <strong>WON</strong> é a melhor e mais completa plataforma de games.</S.Subtitle>
+          <Heading size="huge">Seus jogos favoritos em um só lugar</Heading>
+          <S.Subtitle><strong>WON</strong> é a melhor e mais completa plataforma de games.</S.Subtitle>
         </div>
 
         <S.Footer>
@@ -25,7 +24,7 @@ const Auth = ({ title,  children }: AuthProps) => (
     </S.BannerBlock>
     <S.Content>
       <S.ContentWrapper>
-        <Logo color="black" size="large" />
+        <Logo id="content" color="black" size="large" />
         <Heading color="black" lineColor='secondary' lineLeft>
           {title}
         </Heading>
