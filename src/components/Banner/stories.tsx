@@ -16,7 +16,7 @@ export default {
   }
 } as Meta
 
-export const BannerStory: Story<BannerProps> = (args) => (
+export const Default: Story<BannerProps> = (args) => (
   <div style={{ maxWidth: '104rem', margin: '0 auto' }}>
     <Banner {...args} />
   </div>

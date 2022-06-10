@@ -6,6 +6,4 @@ export default {
   component: FormSign
 } as Meta
 
-export const FormSignStory: Story = () => (<div>
-  <FormSign />
-</div>)
+export const Default: Story = () => <div><FormSign /></div>

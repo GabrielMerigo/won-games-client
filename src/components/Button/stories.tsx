@@ -15,11 +15,11 @@ export default {
   }
 }
 
-export const ButtonStory: Story = (args) => {
+export const Default: Story = (args) => {
   return  <Button {...args} />
 }
 
-ButtonStory.args = {
+Default.args = {
   children: 'Buy now'
 } as Meta;
 

@@ -8,7 +8,7 @@ export default {
   args: {...item}
 } as Meta
 
-export const HighlightStory: Story<HighlightProps> = (args) => (
+export const Default: Story<HighlightProps> = (args) => (
   <div style={{ maxWidth: '104rem' }}>
     <Highlight {...args} />
   </div>

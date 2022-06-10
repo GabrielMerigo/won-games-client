@@ -11,8 +11,8 @@ export default {
   }
 } as Meta
 
-export const HeadingStory: Story<HeadingProps> = (args) => <Heading {...args} />
+export const Default: Story<HeadingProps> = (args) => <Heading {...args} />
 
-HeadingStory.args = {
+Default.args = {
   children: 'Most Populars'
 }

@@ -1,11 +1,12 @@
-import { Email } from 'styled-icons/material-outlined'
+import { Email, LockClock } from 'styled-icons/material-outlined'
 import Link from 'next/link';
 import Button from '../../components/Button'
 import TextField from '../../components/TextField'
 import * as S from './styles'
+import { FormLink, FormWrapper } from '../../components/Form';
 
 const FormSign = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField
         name="email"
@@ -17,19 +18,19 @@ const FormSign = () => (
         name="password"
         placeholder="Senha"
         type="password"
-        icon={<Email />}
+        icon={<LockClock />}
       />
 
       <S.ForgotPassword>Esqueceu sua Senha?</S.ForgotPassword>
 
       <Button size="large" fullWidth>Entrar Agora</Button>
 
-      <S.FormLink>
+      <FormLink>
         Não tem uma conta?
         <Link href="/sign-up"><a>Criar</a></Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export default FormSign

@@ -6,9 +6,9 @@ export default {
   component: Menu
 } as Meta
 
-export const MenuStory: Story<MenuProps> = (props) => <Menu {...props} />
+export const Default: Story<MenuProps> = (props) => <Menu {...props} />
 
-MenuStory.parameters = {
+Default.parameters = {
   layout: 'fullscreen',
   backgrounds: {
     default: 'won-dark'
