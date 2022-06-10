@@ -19,14 +19,14 @@ const FormSign = () => (
         type="password"
         icon={<Email />}
       />
+
       <S.ForgotPassword>Esqueceu sua Senha?</S.ForgotPassword>
 
-      <Button size="large" fullWidth>
-        Sign in Now
-      </Button>
+      <Button size="large" fullWidth>Entrar Agora</Button>
 
       <S.FormLink>
-        Don't have an account? <Link href="/sign-up"><a>Sign Up</a></Link>
+        Não tem uma conta?
+        <Link href="/sign-up"><a>Criar</a></Link>
       </S.FormLink>
     </form>
   </S.Wrapper>
