@@ -4,6 +4,7 @@ import * as RibbonStyles from '../Ribbon/styles'
 
 export const Wrapper = styled.main`
   position: relative;
+  z-index: 10;
 
   ${media.lessThan('large')`
     ${RibbonStyles.Wrapper} {

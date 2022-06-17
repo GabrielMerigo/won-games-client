@@ -8,6 +8,7 @@ export const Wrapper = styled.menu`
     align-items: center;
     padding: ${theme.spacings.small} 0;
     position: relative;
+    z-index: 20;
   `}
 `;
 
@@ -51,7 +52,6 @@ export const MenuNav = styled.div`
       margin-left: ${theme.spacings.small};
     `}
   `}
-
 `;
 
 export const MenuLink = styled.a`
