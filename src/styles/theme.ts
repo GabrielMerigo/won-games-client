@@ -1,6 +1,6 @@
 export default {
   grid: {
-    container: '110rem',
+    container: '120rem',
     gutter: '3.2rem'
   },
   border: {
