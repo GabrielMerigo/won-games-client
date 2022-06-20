@@ -7,7 +7,7 @@ import GameCardSlider from '../../components/GameCardSlider';
 export type ShowCaseProps = {
   title?: string;
   highlight?: HighlightProps;
-  games?: GameCardProps;
+  games?: GameCardProps[];
 }
 
 const ShowCase = ({ games, title, highlight }: ShowCaseProps) => (
@@ -17,7 +17,6 @@ const ShowCase = ({ games, title, highlight }: ShowCaseProps) => (
         {title}
       </Heading>
     )}
-
     {!!highlight && <Highlight {...highlight} />}
     {!!games && <GameCardSlider items={games} color="white" />}
   </S.Wrapper>
