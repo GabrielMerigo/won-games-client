@@ -1,7 +1,5 @@
 import styled, { css } from 'styled-components'
 import * as HeadingStyles from '../../components/Heading/styles'
-import * as HighlightStyles from '../../components/Highlight/styles'
-import * as GameCardSliderStyles from '../../components/GameCardSlider/styles'
 import media from 'styled-media-query'
 
 export const SectionNews = styled.div`
@@ -46,23 +44,4 @@ export const SectionBanner = styled.div`
 
 export const SectionUpComing = styled.div`
   ${({ theme }) => css``}
-`
-
-export const SectionFreeGames = styled.div`
-  ${({ theme }) => css``}
-`
-
-export const SectionFooter = styled.section`
-  ${({ theme }) => css`
-    margin-top: ${theme.spacings.large};
-    padding-bottom: ${theme.spacings.xsmall};
-    padding-top: ${theme.spacings.xxlarge};
-    background-color: ${theme.colors.white};
-    clip-path: polygon(0 5%, 100% 0%, 100% 100%, 0 100%);
-
-    ${media.greaterThan('medium')`
-      padding-top: calc(${theme.spacings.xxlarge} * 2);
-      clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0 100%);
-    `}
-  `}
 `
