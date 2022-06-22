@@ -1,12 +1,10 @@
 import Footer from '../../components/Footer'
 import { Container } from '../../components/Container'
 import Menu from '../../components/Menu'
-import Heading from '../../components/Heading'
 import { BannerProps } from '../../components/Banner'
 import { GameCardProps } from '../../components/GameCard'
-import Highlight, { HighlightProps } from '../../components/Highlight'
+import { HighlightProps } from '../../components/Highlight'
 import BannerSlider from '../../components/BannerSlider'
-import GameCardSlider from '../../components/GameCardSlider'
 import * as S from './styles'
 import ShowCase from '../../components/ShowCase'
 
