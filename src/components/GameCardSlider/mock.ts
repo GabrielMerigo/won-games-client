@@ -4,8 +4,24 @@ export default [
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
-    // promotionalPrice: 'R$ 215,00',
-    // ribbon: '10% OFF',
-    // ribbonSize: 'small'
+    promotionalPrice: 'R$ 215,00',
+    ribbon: '10% OFF',
+    ribbonSize: 'small'
+  },
+  {
+    title: 'Population Zero',
+    developer: 'Rockstar Games',
+    img: 'https://source.unsplash.com/user/willianjusten/300x140',
+    price: 'R$ 235,00',
+    promotionalPrice: 'R$ 215,00'
+  },
+  {
+    title: 'Population Zero',
+    developer: 'Rockstar Games',
+    img: 'https://source.unsplash.com/user/willianjusten/300x140',
+    price: 'R$ 235,00',
+    promotionalPrice: 'R$ 215,00',
+    ribbon: '10% OFF',
+    ribbonSize: 'small'
   }
 ]

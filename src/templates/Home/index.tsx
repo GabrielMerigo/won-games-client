@@ -8,6 +8,7 @@ import Highlight, { HighlightProps } from '../../components/Highlight'
 import BannerSlider from '../../components/BannerSlider'
 import GameCardSlider from '../../components/GameCardSlider'
 import * as S from './styles'
+import ShowCase from '../../components/ShowCase'
 
 export type HomeTemplateProps = {
   banners: BannerProps[]
@@ -41,46 +42,21 @@ const Home = ({
     </Container>
 
     <S.SectionNews>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary" color="black">
-          New Release
-        </Heading>
-        <GameCardSlider items={newGames} color="black" />
-      </Container>
+      <ShowCase  title="New Games" games={newGames} />
     </S.SectionNews>
 
-    <S.SectionMostPopular>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Most Popular
-        </Heading>
-        <Highlight {...mostPopularHighlight} />
-        <GameCardSlider items={mostPopularGames} />
-      </Container>
-    </S.SectionMostPopular>
+    <ShowCase
+      title="Most Popular"
+      highlight={mostPopularHighlight}
+      games={mostPopularGames}
+    />
 
     <S.SectionUpComing>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Up Coming
-        </Heading>
-
-        <GameCardSlider items={upcomingGames} color="white" />
-        <Highlight {...upcomingHighlight} />
-        <GameCardSlider items={upcomingMoreGames} color="white" />
-      </Container>
+      <ShowCase title="Upcoming Games" games={upcomingGames} />
+      <ShowCase highlight={upcomingHighlight} games={upcomingMoreGames} />
     </S.SectionUpComing>
 
-    <S.SectionFreeGames>
-      <Container>
-        <Heading size="small" lineLeft lineColor="secondary">
-          Free Games
-        </Heading>
-
-        <Highlight {...freeHighlight} />
-        <GameCardSlider items={freeGames} color="white" />
-      </Container>
-    </S.SectionFreeGames>
+    <ShowCase title="Free Games" highlight={freeHighlight} games={freeGames} />
 
     <S.SectionFooter>
       <Container>

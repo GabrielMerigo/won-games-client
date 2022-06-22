@@ -4,32 +4,7 @@ import * as HighlightStyles from '../../components/Highlight/styles'
 import * as GameCardSliderStyles from '../../components/GameCardSlider/styles'
 import media from 'styled-media-query'
 
-export const Section = styled.section`
-  ${({ theme }) => css`
-    ${HeadingStyles.Wrapper},
-    ${HighlightStyles.Wrapper},
-    ${GameCardSliderStyles.Wrapper} {
-      margin-bottom: ${theme.spacings.medium};
-    }
-
-    ${HighlightStyles.Wrapper}{
-      ${media.lessThan('medium')`
-        margin-right: calc(-${theme.grid.gutter} / 2);
-        margin-left: calc(-${theme.grid.gutter} / 2);
-      `}
-    }
-
-    ${GameCardSliderStyles.Wrapper} {
-      ${media.lessThan('huge')`
-        margin-right: calc(-${theme.grid.gutter} / 2);
-      `}
-    }
-
-    margin-bottom: calc(${theme.spacings.large} * 2);
-  `}
-`
-
-export const SectionNews = styled(Section)`
+export const SectionNews = styled.div`
   ${({ theme }) => css`
     margin-bottom: calc(${theme.spacings.xxlarge} * 2);
 
@@ -57,11 +32,7 @@ export const SectionNews = styled(Section)`
   `}
 `
 
-export const SectionMostPopular = styled(Section)`
-  ${({ theme }) => css``}
-`
-
-export const SectionBanner = styled(Section)`
+export const SectionBanner = styled.div`
   ${({ theme }) => css`
     margin: ${theme.spacings.large} calc(-${theme.grid.gutter} / 2);
 
@@ -73,11 +44,11 @@ export const SectionBanner = styled(Section)`
   `}
 `
 
-export const SectionUpComing = styled(Section)`
+export const SectionUpComing = styled.div`
   ${({ theme }) => css``}
 `
 
-export const SectionFreeGames = styled(Section)`
+export const SectionFreeGames = styled.div`
   ${({ theme }) => css``}
 `
 
