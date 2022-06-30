@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.16.7",
+    "@styled-icons/fa-brands": "^10.38.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.12.0",
     "cross-env": "^7.0.3",
