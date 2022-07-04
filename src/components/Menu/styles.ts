@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 import media from 'styled-media-query';
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close'
 
+type MenuFullProps = {
+  isOpen: boolean
+}
+
 export const Wrapper = styled.menu`
   ${({ theme }) => css`
     display: flex;
@@ -42,9 +46,6 @@ export const MenuGroup = styled.div`
   `}
 `;
 
-type MenuFullProps = {
-  isOpen: boolean
-}
 
 export const MenuNav = styled.div`
   ${({ theme }) => css`

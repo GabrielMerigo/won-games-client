@@ -18,7 +18,6 @@ const Menu = ({ username }: MenuProps) => {
 
   return (
     <S.Wrapper>
-
       <MediaMatch lessThan="medium">
         <S.IconWrapper onClick={() => setIsOpen(true)}>
           <MenuIcon aria-label="open menu" />
@@ -75,7 +74,7 @@ const Menu = ({ username }: MenuProps) => {
                 Sign in
               </Button>
             </Link>
-            <span>or</span>
+            <span>ou</span>
             <Link href="/sign-up" passHref>
               <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>
             </Link>

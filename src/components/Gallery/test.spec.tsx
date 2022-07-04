@@ -33,10 +33,10 @@ describe('<Gallery />', () => {
   it('should open modal with selected image', async () => {
     renderWithTheme(<Gallery items={[mockItems[0], mockItems[1]]} />);
 
-    // clico na thumb
+    // Clico na thumb
     fireEvent.click(screen.getByRole('button', {name: /Thumb - Gallery Image 2/i}))
 
-    // espero que a image da thumb seja aberta
+    // Espero que a image da thumb seja aberta
     const img = await screen.findByRole('img', { name: /Gallery Image 2/i})
     expect(img.parentElement?.parentElement).toHaveClass('slick-active')
   })
@@ -63,6 +63,5 @@ describe('<Gallery />', () => {
 
     expect(modal.getAttribute('aria-hidden')).toBe('true');
     expect(modal).toHaveStyle({ opacity: 0  });
-
   })
 })
