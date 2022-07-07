@@ -13,7 +13,7 @@ export type GalleryImageProps = {
 }
 
 export type GalleryProps = {
-  items: GalleryImageProps[]
+  items: GalleryImageProps[];
 }
 
 const commonSettings: SliderSettings = {

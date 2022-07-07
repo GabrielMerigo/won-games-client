@@ -1,9 +1,32 @@
 import * as S from './styles'
 import Base from '../../templates/Base';
 
-const Game = () => (
+import GameInfo, { GameInfoProps } from '../../components/GameInfo';
+import Gallery, { GalleryImageProps } from '../../components/Gallery';
+import TextContent from 'components/TextContent';
+
+export type GameTemplateProps = {
+  cover: string;
+  gameInfo: GameInfoProps,
+  gallery: GalleryImageProps[],
+  description: string
+}
+
+const Game = ({ cover, gameInfo, gallery, description }: GameTemplateProps) => (
   <Base>
-    <h1>Game</h1>
+    <S.Cover src={cover} role="image" aria-label=""></S.Cover>
+    <S.Main>
+      <S.SectionGameInfo>
+        <GameInfo {...gameInfo} />
+      </S.SectionGameInfo>
+
+      <S.SectionGallery>
+        {!!gallery && <Gallery items={gallery} />}
+      </S.SectionGallery>
+      <S.SectionDescription>
+        <TextContent title="Description" content={description} />
+      </S.SectionDescription>
+    </S.Main>
   </Base>
 )
 
