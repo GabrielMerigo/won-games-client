@@ -5,16 +5,31 @@ import GameInfo, { GameInfoProps } from '../../components/GameInfo';
 import Gallery, { GalleryImageProps } from '../../components/Gallery';
 import TextContent from 'components/TextContent';
 import GameDetails, { GameDetailsProps } from '../../components/GameDetails';
+import { GameCardProps } from '../../components/GameCard';
+import { HighlightProps } from '../../components/Highlight';
+import ShowCase from 'components/ShowCase';
 
 export type GameTemplateProps = {
   cover: string;
   gameInfo: GameInfoProps,
   gallery: GalleryImageProps[],
   description: string,
-  details: GameDetailsProps
+  details: GameDetailsProps,
+  upcomingGames: GameCardProps[],
+  upcomingHighlight: HighlightProps,
+  recommendGames: GameCardProps[],
 }
 
-const Game = ({ cover, gameInfo, gallery, description, details }: GameTemplateProps) => (
+const Game = ({
+  cover,
+  gameInfo,
+  gallery,
+  description,
+  details,
+  upcomingGames,
+  upcomingHighlight,
+  recommendGames
+}: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label=""></S.Cover>
     <S.Main>
@@ -32,6 +47,9 @@ const Game = ({ cover, gameInfo, gallery, description, details }: GameTemplatePr
       <S.SectionGameDetails>
         <GameDetails {...details} />
       </S.SectionGameDetails>
+
+      <ShowCase title="Upcoming" games={upcomingGames} highlight={upcomingHighlight} />
+      <ShowCase title="You may like these  games" games={recommendGames} />
     </S.Main>
   </Base>
 )

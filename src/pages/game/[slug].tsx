@@ -1,6 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 import Game, { GameTemplateProps } from '../../templates/Game/'
 import galleryMock from '../../components/Gallery/mock';
+import gamesMock from '../../components/GameCardSlider/mock';
+import highlightMock from '../../components/Highlight/mock';
 
 export default function Index(props: GameTemplateProps) {
   return (
@@ -34,7 +36,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   return {
     props: {
-      cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eJ8R_SpFkFrQEMRoaX3tMp6uBeFn7yq5YrRYm0jkR_uN1Y6Dj3QVtHOmEsjnmmuaK-Y&usqp=CAU',
+      cover: 'https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7',
       gameInfo: {
         title: 'Cyberpunk 2077',
         price: '59.00',
@@ -50,7 +52,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
         publisher: 'CD PROJEKT RED',
         rating: 'BR18',
         genres: ['Action', 'Role-playing']
-      }
+      },
+      upcomingGames: gamesMock,
+      upcomingHighlight: highlightMock,
+      recommendGames: gamesMock
     }
   }
 }
