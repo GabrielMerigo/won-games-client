@@ -3,8 +3,8 @@ import Heading from '../../components/Heading'
 import * as S from './styles'
 import { Linux, Windows, Apple } from '@styled-icons/fa-brands'
 
-type Platform = 'windows' | 'linux' | 'mac'
-type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
+export type Platform = 'windows' | 'mac' | 'linux'
+export type Rating = 'BR0' | 'BR10' | 'BR12' | 'BR14' | 'BR16' | 'BR18'
 
 export type GameDetailsProps = {
   developer: string;

@@ -3,16 +3,16 @@ import Base from '../../templates/Base';
 
 import GameInfo, { GameInfoProps } from '../../components/GameInfo';
 import Gallery, { GalleryImageProps } from '../../components/Gallery';
-import TextContent from 'components/TextContent';
 import GameDetails, { GameDetailsProps } from '../../components/GameDetails';
 import { GameCardProps } from '../../components/GameCard';
 import { HighlightProps } from '../../components/Highlight';
-import ShowCase from 'components/ShowCase';
+import TextContent from '../../components/TextContent';
+import ShowCase from '../../components/ShowCase';
 
 export type GameTemplateProps = {
   cover: string;
   gameInfo: GameInfoProps,
-  gallery: GalleryImageProps[],
+  gallery?: GalleryImageProps[],
   description: string,
   details: GameDetailsProps,
   upcomingGames: GameCardProps[],
@@ -31,7 +31,8 @@ const Game = ({
   recommendGames
 }: GameTemplateProps) => (
   <Base>
-    <S.Cover src={cover} role="image" aria-label=""></S.Cover>
+    <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
+
     <S.Main>
       <S.SectionGameInfo>
         <GameInfo {...gameInfo} />
@@ -40,6 +41,7 @@ const Game = ({
       <S.SectionGallery>
         {!!gallery && <Gallery items={gallery} />}
       </S.SectionGallery>
+
       <S.SectionDescription>
         <TextContent title="Description" content={description} />
       </S.SectionDescription>
