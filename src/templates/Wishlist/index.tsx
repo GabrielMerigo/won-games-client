@@ -1,11 +1,11 @@
-import * as S from './styles'
 import Base from '../Base';
-import { Container } from 'components/Container';
 import ShowCase from '../../components/ShowCase';
 import Heading from '../../components/Heading';
 import GameCard, { GameCardProps } from '../../components/GameCard';
+import { Container } from 'components/Container';
 import { HighlightProps } from '../../components/Highlight';
 import { Grid } from '../../components/Grid';
+import { Divider } from '../../components/Divider';
 
 export type WishlistTemplateProps = {
   games?: GameCardProps[],
@@ -31,6 +31,7 @@ const Wishlist = ({ recommendGames, recommendHighlight, games }: WishlistTemplat
         ))}
       </Grid>
 
+      <Divider />
     </Container>
     <ShowCase
       title="You my like these games"
