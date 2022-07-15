@@ -15,7 +15,7 @@ const GameItem = ({ img, title, price }: GameItemProps) => (
 
       <S.Content>
         <S.Title>{title}</S.Title>
-        <S.Price>{title}</S.Price>
+        <S.Price>{price}</S.Price>
       </S.Content>
     </S.GameContent>
   </S.Wrapper>
