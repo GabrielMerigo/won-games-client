@@ -7,8 +7,8 @@ describe('<GameItem />', () => {
   it('should render the item', () => {
     // renderWithTheme(<GameItem />)
 
-    //Verificar se o title foi renderizado
-    //Verificar se a igame foi renderizada
+    // Verificar se o title foi renderizado
+    // Verificar se a igame foi renderizada
     // Verificar o preço
   })
 })
