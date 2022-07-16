@@ -37,8 +37,41 @@ export const ImageBox = styled.div`
   `}
 `
 
-export const Content = styled.div``
+export const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
-export const Title = styled.h3``
+`
+export const Title = styled.h3`
+  ${({ theme }) => css`
+    font-size: ${theme.font.sizes.small};
+    line-height: ${theme.font.sizes.small};
+    font-weight: ${theme.font.bold};
+    color: ${theme.colors.black};
+    margin-bottom: ${theme.spacings.xxsmall};
 
-export const Price = styled.p``
+    ${media.greaterThan('medium')`
+      font-size: 2rem;
+      line-height: 2rem;
+    `};
+  `}
+`
+
+export const Price = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    padding: 0.2rem ${theme.spacings.xxsmall};
+    background-color: ${theme.colors.secondary};
+    border-radius: ${theme.border.radius};
+    font-size: ${theme.font.sizes.small};
+    font-weight: ${theme.font.bold};
+  `}
+`
+
+export const DownloadLink = styled.a`
+  ${({ theme }) => css`
+    color: ${theme.colors.primary};
+    margin-left: ${theme.spacings.xxsmall};
+  `}
+`
