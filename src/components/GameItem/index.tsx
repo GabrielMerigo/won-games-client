@@ -1,5 +1,5 @@
-import * as S from './styles'
-import { Download } from '@styled-icons/boxicons-solid/Download'
+import * as S from './styles';
+import { Download } from '@styled-icons/boxicons-solid/Download';
 
 export type GameItemProps = {
   img: string;
