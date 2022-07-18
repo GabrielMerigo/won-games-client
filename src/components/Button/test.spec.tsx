@@ -54,6 +54,15 @@ describe('<Button />', () => {
       .toHaveAttribute('href', '/link')
   });
 
+  it('should render a disabled button', () => {
+    renderWithTheme(<Button disabled>Buy Now</Button>);
+
+    expect(screen.getByRole('button', { name: 'Buy Now' })).toHaveStyle({
+      cursor: 'not-allowed',
+      filter: 'saturate(30%)'
+    })
+  })
+
   it('should render a minimal version', () => {
     renderWithTheme(<Button minimal>Buy Now</Button>);
 
