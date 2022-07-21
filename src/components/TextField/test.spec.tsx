@@ -10,7 +10,7 @@ import { render } from 'react-dom';
 
 describe('<TextField />', () => {
   it('Renders with Label', () => {
-    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
+    renderWithTheme(<TextField label="Label" name="Field" id="Field" />)
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
@@ -32,7 +32,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         id="TextField"
       />
     );
@@ -51,7 +51,7 @@ describe('<TextField />', () => {
 
   it('Is accessible by tab', () => {
     renderWithTheme(
-      <TextField label="TextField" labelFor="TextField" id="TextField" />
+      <TextField label="TextField" name="TextField" />
     );
 
     const input = screen.getByLabelText('TextField');
@@ -107,7 +107,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        labelFor="TextField"
+        name="TextField"
         id="TextField"
         disabled
       />
@@ -132,7 +132,7 @@ describe('<TextField />', () => {
 
     const { container } = renderWithTheme(<TextField
       label="TextField"
-      labelFor="TextField"
+      name="TextField"
       id="TextField"
       error="error"
     />)
