@@ -15,7 +15,7 @@ describe('<ProfileMenu />', () => {
   })
 
   it('should render the menu with an active link defined', () => {
-    const { debug } = renderWithTheme(<ProfileMenu activeLink="/profile/cards" />);
+    renderWithTheme(<ProfileMenu activeLink="/profile/cards" />);
 
     expect(screen.getByText('My Cards').parentElement).toHaveStyle({
       background: '#F231A5',
