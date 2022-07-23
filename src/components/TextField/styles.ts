@@ -43,7 +43,6 @@ export const InputWrapper = styled.div`
     display: flex;
     background: ${theme.colors.lightGray};
     border-radius: 0.2rem;
-    padding: 0 ${theme.spacings.xsmall};
     border: 0.2rem solid;
     border-color: ${theme.colors.lightGray};
     position: relative;
@@ -66,8 +65,8 @@ export const Input = styled.input<IconPositionProps>`
     width: 100%;
 
     ${iconPosition === 'right'
-      ? css`margin-right: 30px;`
-      : css`margin-left: 30px;`
+      ? css`margin-right: 15px;`
+      : css`margin-left: 15px;`
     };
   `}
 `

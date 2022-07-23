@@ -2,8 +2,11 @@ import { Meta, Story } from '@storybook/react';
 import FormProfile from '.';
 
 export default {
-  title: `FormProfile`,
+  title: `Form/FormProfile`,
   component: FormProfile
 } as Meta
 
-export const FormProfile: Story = () => <FormProfile />
+export const Default: Story = () =>
+  <div style={{ maxWidth: 860, margin: 'auto' }}>
+    <FormProfile />
+  </div>
