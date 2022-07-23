@@ -80,7 +80,7 @@ describe('<TextField />', () => {
     });
 
     expect(screen.getByRole('textbox')).toHaveStyle({
-      'margin-left': '30px'
+      'margin-left': '50px'
     });
   })
 
@@ -95,7 +95,7 @@ describe('<TextField />', () => {
     });
 
     expect(screen.getByRole('textbox')).toHaveStyle({
-      'margin-right': '30px'
+      'margin-right': '50px'
     });
   })
 

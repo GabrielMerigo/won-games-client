@@ -64,10 +64,8 @@ export const Input = styled.input<IconPositionProps>`
     outline: none;
     width: 100%;
 
-    ${iconPosition === 'right'
-      ? css`margin-right: 15px;`
-      : css`margin-left: 15px;`
-    };
+    ${iconPosition === 'right' && css`margin-right: 50px;`};
+    ${iconPosition === 'left' && css`margin-left: 50px;`};
   `}
 `
 

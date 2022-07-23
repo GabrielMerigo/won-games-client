@@ -47,8 +47,8 @@ const TextField = ({
           {...(label ? { id: name } : {})}
           {...props}
         />
-        <S.Error>{error}</S.Error>
       </S.InputWrapper>
+      <S.Error>{error}</S.Error>
     </S.Wrapper>
   )
 }
