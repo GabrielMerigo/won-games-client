@@ -2,6 +2,8 @@ import TextField from '../../components/TextField'
 import Heading from '../../components/Heading'
 import * as S from './styles'
 import Button from '../../components/Button'
+import { User } from 'styled-icons/boxicons-regular'
+import { Email, Lock, Password } from 'styled-icons/material-outlined'
 
 const FormProfile = () => (
   <S.Wrapper>
@@ -15,6 +17,7 @@ const FormProfile = () => (
         placeholder="Name"
         label="Name"
         initialValue="Jhon Doe"
+        icon={<User />}
       />
 
       <TextField
@@ -24,6 +27,7 @@ const FormProfile = () => (
         initialValue="Jhon Doe"
         type="email"
         disabled
+        icon={<Email />}
       />
 
       <TextField
@@ -32,6 +36,7 @@ const FormProfile = () => (
         label="Password"
         type="password"
         disabled
+        icon={<Lock />}
       />
 
       <TextField
@@ -40,6 +45,7 @@ const FormProfile = () => (
         label="New Password"
         type="password"
         disabled
+        icon={<Lock />}
       />
 
       <Button title='Save' size='large'>
