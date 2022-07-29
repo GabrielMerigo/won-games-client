@@ -2,6 +2,7 @@ import { renderWithTheme } from '../../utils/tests/helpers';
 import { screen } from '@testing-library/react'
 
 import Auth from './index';
+import { debug } from 'console';
 
 describe('<Auth />', () => {
   it('should render logos, title, subtitle and children', () => {

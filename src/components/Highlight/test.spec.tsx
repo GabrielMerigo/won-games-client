@@ -33,7 +33,7 @@ describe('<Highlight />', () => {
 
 
   it('should render the float image', () => {
-    renderWithTheme(<Highlight {...props} floatImage="/float-image.png"/>);
+    renderWithTheme(<Highlight {...props} floatImage="/float-image.png" />);
 
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
       'src', '/float-image.png'
@@ -43,18 +43,21 @@ describe('<Highlight />', () => {
   it('should render align right by default', () => {
     const { container } = renderWithTheme(<Highlight {...props} />);
 
+
     expect(container.firstChild).toHaveStyle({
       'grid-template-areas': "'floatimage content'"
     })
 
     expect(container.firstChild).toHaveStyleRule('text-align',
       'right', {
-        modifier: `${S.Content}`
+      modifier: `${S.Content}`
     })
   });
 
   it('should render align left', () => {
-    const { container } = renderWithTheme(<Highlight {...props} alignment="left" />);
+    const { container, debug } = renderWithTheme(<Highlight {...props} alignment="left" />);
+
+    debug(container);
 
     expect(container.firstChild).toHaveStyle({
       'grid-template-areas': "'content floatimage'"
@@ -62,7 +65,7 @@ describe('<Highlight />', () => {
 
     expect(container.firstChild).toHaveStyleRule('text-align',
       'left', {
-       modifier: `${S.Content}`
+      modifier: `${S.Content}`
     })
   });
 })

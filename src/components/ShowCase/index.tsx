@@ -12,6 +12,7 @@ export type ShowCaseProps = {
 
 const ShowCase = ({ games, title, highlight }: ShowCaseProps) => (
   <S.Wrapper>
+
     {!!title && (
       <Heading size="small" lineLeft lineColor="secondary">
         {title}

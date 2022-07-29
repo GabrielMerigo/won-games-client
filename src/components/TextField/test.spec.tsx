@@ -6,11 +6,10 @@ import { Email } from '@styled-icons/material-outlined/Email';
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import TextField from '.'
-import { render } from 'react-dom';
 
 describe('<TextField />', () => {
   it('Renders with Label', () => {
-    renderWithTheme(<TextField label="Label" name="Field" id="Field" />)
+    renderWithTheme(<TextField label="Label" labelFor="Field" id="Field" />)
 
     expect(screen.getByLabelText('Label')).toBeInTheDocument()
   })
@@ -32,7 +31,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        name="TextField"
+        labelFor="TextField"
         id="TextField"
       />
     );
@@ -51,7 +50,7 @@ describe('<TextField />', () => {
 
   it('Is accessible by tab', () => {
     renderWithTheme(
-      <TextField label="TextField" name="TextField" />
+      <TextField label="TextField" labelFor="TextField" id="TextField" />
     );
 
     const input = screen.getByLabelText('TextField');
@@ -80,7 +79,7 @@ describe('<TextField />', () => {
     });
 
     expect(screen.getByRole('textbox')).toHaveStyle({
-      'margin-left': '50px'
+      'margin-left': '30px'
     });
   })
 
@@ -95,7 +94,7 @@ describe('<TextField />', () => {
     });
 
     expect(screen.getByRole('textbox')).toHaveStyle({
-      'margin-right': '50px'
+      'margin-right': '30px'
     });
   })
 
@@ -107,7 +106,7 @@ describe('<TextField />', () => {
       <TextField
         onInput={onInput}
         label="TextField"
-        name="TextField"
+        labelFor="TextField"
         id="TextField"
         disabled
       />
@@ -132,7 +131,7 @@ describe('<TextField />', () => {
 
     const { container } = renderWithTheme(<TextField
       label="TextField"
-      name="TextField"
+      labelFor="TextField"
       id="TextField"
       error="error"
     />)

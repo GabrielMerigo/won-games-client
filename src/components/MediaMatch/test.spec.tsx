@@ -33,7 +33,7 @@ describe('<MediaMatch />', () => {
     });
 
     expect(mobileHeading.parentElement).toHaveStyleRule('display', 'block', {
-      media: '(min-width: 768px)'
+      media: '(max-width: 768px)'
     });
   })
 

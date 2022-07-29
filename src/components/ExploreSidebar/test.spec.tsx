@@ -1,11 +1,13 @@
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import ExploreSidebar from './'
 
+import items from './mock'
+
 describe('<ExploreSidebar />', () => {
   it('should render headings', () => {
-    renderWithTheme(<ExploreSidebar />);
+    renderWithTheme(<ExploreSidebar items={items} />);
 
     expect(screen.getByRole('heading', { name: /price/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /sort by/i })).toBeInTheDocument();
@@ -14,16 +16,14 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar />);
+    renderWithTheme(<ExploreSidebar items={items} />);
 
     expect(screen.getByRole('checkbox', { name: /Under 50%/i })).toBeInTheDocument();
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeInTheDocument();
   })
 
-
   it('should render the filter button', () => {
-    renderWithTheme(<ExploreSidebar />);
-
+    renderWithTheme(<ExploreSidebar items={items} />);
     expect(screen.getByRole('button', { name: /filter/i })).toBeInTheDocument();
   })
 })

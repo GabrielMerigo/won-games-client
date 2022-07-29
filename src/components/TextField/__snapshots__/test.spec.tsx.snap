@@ -8,6 +8,7 @@ exports[`<TextField /> Renders with error 1`] = `
   display: flex;
   background: #EAEAEA;
   border-radius: 0.2rem;
+  padding: 0 1.6rem;
   border: 0.2rem solid;
   border-color: #EAEAEA;
   position: relative;
@@ -26,7 +27,7 @@ exports[`<TextField /> Renders with error 1`] = `
   border: 0;
   outline: none;
   width: 100%;
-  margin-left: 50px;
+  margin-left: 30px;
 }
 
 .c1 {
@@ -59,15 +60,14 @@ exports[`<TextField /> Renders with error 1`] = `
     <input
       class="c4"
       id="TextField"
-      name="TextField"
       type="text"
       value=""
     />
+    <p
+      class="c5"
+    >
+      error
+    </p>
   </div>
-  <p
-    class="c5"
-  >
-    error
-  </p>
 </div>
 `;

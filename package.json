@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.16.7",
-    "@styled-icons/fa-brands": "^10.38.0",
     "@typescript-eslint/eslint-plugin": "^5.21.0",
     "@typescript-eslint/parser": "^5.12.0",
     "cross-env": "^7.0.3",
@@ -44,7 +43,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/react": "^6.4.22",
+    "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
