@@ -22,14 +22,14 @@ export type ExploreSidebarProps = {
 
 const ExploreSidebar = ({ items }: ExploreSidebarProps) => (
   <S.Wrapper>
-    {items.map(item => (
+    {items?.map(item => (
       <div key={item.title}>
         <Heading lineBottom lineColor="secondary" size='small'>
           {item.title}
         </Heading>
 
         {item.type === 'checkbox' && (
-          item.fields.map((field) => (
+          item?.fields.map((field) => (
             <Checkbox
               key={field.name}
               name={field.name}
@@ -38,36 +38,25 @@ const ExploreSidebar = ({ items }: ExploreSidebarProps) => (
             />
           ))
         )}
+
+        {item.type === 'radio' && (
+          item?.fields.map((field) => (
+            <Radio
+              value={field.name}
+              key={field.name}
+              id={field.name}
+              name={item.name}
+              label={field.label}
+              labelFor={field.name}
+            />
+          ))
+        )}
       </div>
-
     ))}
-    {/* <Heading lineBottom lineColor='secondary' size="small">Price</Heading>
-    <Checkbox
-      name="under-50"
-      label="Under 50%"
-      labelFor="under-50"
-    />
-    <Heading lineBottom lineColor='secondary' size="small">Sort By</Heading>
-    <Radio
-      id="high-to-low"
-      name="sort-by"
-      label="High to low"
-      labelFor="high-to-low"
-      value="high-to-low"
-    />
-    <Radio
-      id="low-to-high"
-      name="sort-by"
-      label="Low to High"
-      labelFor="low-to-high"
-      value="low-to-high"
-    />
-    <Heading lineBottom lineColor='secondary' size="small">System</Heading>
-    <Heading lineBottom lineColor='secondary' size="small">Genre</Heading>
 
-
-    <Button fullWidth size="medium">Filter</Button> */}
+    <Button fullWidth size="medium">Filter</Button>
   </S.Wrapper>
 )
+
 
 export default ExploreSidebar
