@@ -58,6 +58,7 @@ const ExploreSidebar = ({ items, initialValues = {} }: ExploreSidebarProps) => {
                 name={item.name}
                 label={field.label}
                 labelFor={field.name}
+                defaultChecked={field.name === values[item.name]}
               />
             ))
           )}
