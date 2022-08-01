@@ -23,11 +23,20 @@ export type Values = {
 
 export type ExploreSidebarProps = {
   items: ItemsProps[],
-  initialValues?: Values
+  initialValues?: Values,
+  onFilter: (values: Values) => void;
 }
 
-const ExploreSidebar = ({ items, initialValues = {} }: ExploreSidebarProps) => {
+const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarProps) => {
   const [values, setValues] = useState<Values>(initialValues);
+
+  const handleFilter = () => {
+    onFilter(values)
+  }
+
+  const handleChange = (name: string, value: string | boolean) => {
+    setValues((state) => ({ ...state, [name]: value }))
+  }
 
   return (
     <S.Wrapper>
@@ -45,6 +54,7 @@ const ExploreSidebar = ({ items, initialValues = {} }: ExploreSidebarProps) => {
                 label={field.label}
                 labelFor={field.name}
                 isChecked={!!values[field.name]}
+                onCheck={(value) => handleChange(field.name, value)}
               />
             ))
           )}
@@ -59,13 +69,14 @@ const ExploreSidebar = ({ items, initialValues = {} }: ExploreSidebarProps) => {
                 label={field.label}
                 labelFor={field.name}
                 defaultChecked={field.name === values[item.name]}
+                onCheck={() => handleChange(item.name, field.name)}
               />
             ))
           )}
         </div>
       ))}
 
-      <Button fullWidth size="medium">Filter</Button>
+      <Button onClick={handleFilter} fullWidth size="medium">Filter</Button>
     </S.Wrapper>
   )
 }
