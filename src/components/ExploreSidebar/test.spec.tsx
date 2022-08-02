@@ -1,10 +1,12 @@
 import { userEvent } from '@storybook/testing-library'
 import { screen } from '@testing-library/react'
+import { css } from 'styled-components'
 import { renderWithTheme } from 'utils/tests/helpers'
 
 import ExploreSidebar from './'
 
 import items from './mock'
+import { Overlay } from './styles'
 
 describe('<ExploreSidebar />', () => {
   it('should render headings', () => {
@@ -22,7 +24,6 @@ describe('<ExploreSidebar />', () => {
     expect(screen.getByRole('checkbox', { name: /Under \$50/i })).toBeInTheDocument();
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeInTheDocument();
   })
-
 
 
   it('should render the filter button', () => {
@@ -90,5 +91,29 @@ describe('<ExploreSidebar />', () => {
 
     userEvent.click(screen.getByRole('button', { name: /Filter/i }));
     expect(onFilter).toHaveBeenCalledWith({ sort_by: 'high-to-low' });
+  })
+
+  it('should open/close sidebar when is filtering on mobile', () => {
+    const { container } = renderWithTheme(
+      <ExploreSidebar
+        items={items}
+        onFilter={jest.fn}
+      />
+    );
+
+    const variant = {
+      media: '(max-width: 768px)',
+      modifier: String(css`
+        ${Overlay}
+      `)
+    }
+
+    const Element = container.firstChild;
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant);
+    userEvent.click(screen.getByLabelText(/open filters/i));
+
+    expect(Element).toHaveStyleRule('opacity', '1', variant);
+    userEvent.click(screen.getByLabelText(/close filters/i));
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant);
   })
 })
