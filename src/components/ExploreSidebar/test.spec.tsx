@@ -108,6 +108,11 @@ describe('<ExploreSidebar />', () => {
       `)
     }
 
+
+    console.log(String(css`
+      ${Overlay}
+    `))
+
     const Element = container.firstChild;
     expect(Element).not.toHaveStyleRule('opacity', '1', variant);
     userEvent.click(screen.getByLabelText(/open filters/i));

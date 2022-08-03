@@ -1,18 +1,33 @@
 import Base from 'templates/Base'
 
-import { GameCardProps } from 'components/GameCard'
-import ExploreSidebar from 'components/ExploreSidebar'
+import GameCard, { GameCardProps } from 'components/GameCard'
+import ExploreSidebar, { ItemsProps } from '../../components/ExploreSidebar'
+import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown';
 
 import * as S from './styles'
+import { Grid } from 'components/Grid'
 
 export type GamesTemplateProps = {
-  games?: GameCardProps[]
+  games?: GameCardProps[],
+  filterItems: ItemsProps[]
 }
 
-const GamesTemplate = ({ games }: GamesTemplateProps) => (
+const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => (
   <Base>
     <S.Main>
-      <ExploreSidebar />
+      <ExploreSidebar items={filterItems} onFilter={() => { }} />
+      <section>
+        <Grid>
+          {games?.map(item => (
+            <GameCard key={item.title} {...item} />
+          ))}
+        </Grid>
+
+        <S.ShowMore role="button" onClick={() => { }}>
+          <p>Show more</p>
+          <ArrowDown size={35} />
+        </S.ShowMore>
+      </section>
     </S.Main>
   </Base>
 )
