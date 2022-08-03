@@ -5,7 +5,7 @@ import ExploreSidebar, { ItemsProps } from '../../components/ExploreSidebar'
 import { KeyboardArrowDown as ArrowDown } from '@styled-icons/material-outlined/KeyboardArrowDown';
 
 import * as S from './styles'
-import { Grid } from 'components/Grid'
+import { Grid } from '../../components/Grid'
 
 export type GamesTemplateProps = {
   games?: GameCardProps[],

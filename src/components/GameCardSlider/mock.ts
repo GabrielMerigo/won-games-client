@@ -5,7 +5,7 @@ let ribbonSize: RibbonSizes = 'small';
 
 const GameCard: GameCardProps[] = [
   {
-    title: 'Population Zero',
+    title: 'Cyberpunk',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
@@ -21,7 +21,7 @@ const GameCard: GameCardProps[] = [
     promotionalPrice: 'R$ 215,00'
   },
   {
-    title: 'Population Zero',
+    title: 'RD2',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 'R$ 235,00',
