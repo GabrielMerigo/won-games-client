@@ -1,5 +1,8 @@
-import { GameCardProps } from 'components/GameCard'
 import Base from 'templates/Base'
+
+import { GameCardProps } from 'components/GameCard'
+import ExploreSidebar from 'components/ExploreSidebar'
+
 import * as S from './styles'
 
 export type GamesTemplateProps = {
@@ -9,7 +12,7 @@ export type GamesTemplateProps = {
 const GamesTemplate = ({ games }: GamesTemplateProps) => (
   <Base>
     <S.Main>
-      teste
+      <ExploreSidebar />
     </S.Main>
   </Base>
 )
