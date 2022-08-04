@@ -24,8 +24,8 @@ const Checkbox = ({
   const onChange = () => {
     const status = !checked;
     setChecked(status);
-    console.log(status)
-    if(onCheck){
+
+    if (onCheck) {
       onCheck(status);
     }
   }
