@@ -26,7 +26,7 @@ describe('<Wishlist />', () => {
     renderWithTheme(<Wishlist {...props} />);
 
     expect(screen.getByText('Wishlist')).toBeInTheDocument();
-    expect(screen.getAllByText(/population zero/i)).toHaveLength(3);
+    expect(screen.getAllByText(/population zero/i)).toHaveLength(1);
     expect(screen.getByTestId('Mock ShowCase')).toBeInTheDocument();
   })
 

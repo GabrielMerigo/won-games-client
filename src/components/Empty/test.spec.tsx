@@ -28,5 +28,6 @@ describe('<Empty />', () => {
     renderWithTheme(<Empty {...props} />);
 
     expect(screen.queryByRole('link', { name: /go back to store/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/total/i)).toBeInTheDocument();
   });
 })
