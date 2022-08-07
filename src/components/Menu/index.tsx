@@ -8,6 +8,8 @@ import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
 import Button from '../Button/index';
 import MediaMatch from '../../components/MediaMatch';
 import Link from 'next/link';
+import CartDropdown from 'components/CartDropdown';
+import CartIcon from 'components/CartIcon';
 
 export type MenuProps = {
   username?: string;
@@ -37,7 +39,9 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink href="#">Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink href="#">Explore</S.MenuLink>
+          </Link>
         </S.MenuNav>
       </MediaMatch>
 
@@ -47,7 +51,14 @@ const Menu = ({ username }: MenuProps) => {
         </S.IconWrapper>
 
         <S.IconWrapper>
-          <ShoppingCartIcon aria-label="open shopping cart" />
+          <MediaMatch greaterThan="medium">
+            <CartDropdown />
+          </MediaMatch>
+          <MediaMatch lessThan="medium">
+            <Link href="/cart">
+              <a><CartIcon /></a>
+            </Link>
+          </MediaMatch>
         </S.IconWrapper>
 
         {!username && (
@@ -66,7 +77,9 @@ const Menu = ({ username }: MenuProps) => {
           <Link href="/" passHref>
             <S.MenuLink href="#">Home</S.MenuLink>
           </Link>
-          <S.MenuLink href="#">Explore</S.MenuLink>
+          <Link href="/games" passHref>
+            <S.MenuLink href="#">Explore</S.MenuLink>
+          </Link>
           {!!username && (
             <>
               <S.MenuLink href="#">My account</S.MenuLink>
@@ -90,7 +103,7 @@ const Menu = ({ username }: MenuProps) => {
         )}
 
       </S.MenuFull>
-    </S.Wrapper>
+    </S.Wrapper >
   )
 }
 
