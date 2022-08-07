@@ -35,8 +35,6 @@ const CartList = ({ items = [], total, hasButton = false }: CartListProps) => (
         hasLink
       />
     )}
-
-
   </S.Wrapper>
 )
 
