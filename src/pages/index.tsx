@@ -5,7 +5,7 @@ import highlightMock from '../components/Highlight/mock'
 import { gql, useQuery } from '@apollo/client';
 
 export default function Index(props: HomeTemplateProps) {
-  const { data: response } = useQuery(gql`
+  useQuery(gql`
     query getCategories {
         categories {
           data {
@@ -18,13 +18,14 @@ export default function Index(props: HomeTemplateProps) {
       }
   `)
 
-  console.log(response.categories.data)
-
-
   return (
     <Home {...props} />
   );
 }
+
+// getStaticProps -> gerar estático em build time (gatsby)
+// getServerSideProps -> gerar via ssr a cada request (nunca vai para o bundle do client)
+// getInitialProps -> gerar via ssr a cada request (vai para o client, faz hydrate do lado do client depois do 1 req)
 
 export function getServerSideProps() {
   return {
