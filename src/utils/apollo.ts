@@ -20,8 +20,7 @@ export function initializeApollo(initialState = {}){
     apolloClientGlobal.cache.restore(initialState);
   }
 
-  // sempre inicializando no SSR com o cache limpo
-  // sempre para que a gente não corra o risco de compartilhar o usuário X com o Y.
+  // sempre inicializando no SSR com o cache limpo, sempre para que a gente não corra o risco de compartilhar o usuário X com o Y.
   if(typeof window === 'undefined') return apolloClientGlobal
   apolloClient = apolloClient ?? apolloClientGlobal
 
