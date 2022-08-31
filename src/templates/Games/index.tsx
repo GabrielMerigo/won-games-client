@@ -9,7 +9,8 @@ import { Grid } from '../../components/Grid'
 
 export type GamesTemplateProps = {
   games?: GameCardProps[],
-  filterItems: ItemsProps[]
+  filterItems: ItemsProps[],
+  apolloClient?: any;
 }
 
 const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => (

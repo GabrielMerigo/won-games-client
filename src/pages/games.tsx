@@ -1,36 +1,34 @@
 import { GetStaticProps } from "next";
 import GamesTemplate, { GamesTemplateProps } from '../templates/Games'
 import filterItemsMock from '../components/ExploreSidebar/mock';
-import gamesMock from 'components/GameCardSlider/mock';
 import { initializeApollo } from "utils/apollo";
-import { gql } from "@apollo/client";
-import { useCallback, useEffect } from "react";
+import { QUERY_GAMES } from "graphql/queries/games";
 
 export default function GamesPage({ games, filterItems }: GamesTemplateProps) {
-  const apolloClient = initializeApollo();
-
-
-  useEffect(useCallback(async () => {
-    const data = await apolloClient.query({ query: gql`
-    query QueryGames {
-      games {
-        data {
-          id
-        }
-      }
-    }
-  `})
-  }), [])
-
   return <GamesTemplate games={games} filterItems={filterItems} />
 }
 
-export const getStaticSideProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
+  const apolloClient = initializeApollo();
 
+  const { data } = await apolloClient.query({
+    query: QUERY_GAMES
+  })
+
+  const games = data.games.data.map((game: any) => ({
+    title: game.attributes.name,
+    developer: game.attributes.developers.data[0].attributes.name,
+    img: `http://localhost:1337${game.attributes.cover.data.attributes.url}`,
+    price: new Intl.NumberFormat('en', {
+      style: 'currency',
+      currency: 'USD'
+    }).format(game.attributes.price),
+  }))
 
   return {
     props: {
-      // games: data,
+      revalidate: 60,
+      games: games,
       filterItems: filterItemsMock
     }
   }
