@@ -2,7 +2,7 @@ import { gql } from '@apollo/client';
 
 export const QUERY_GAMES = gql`
   query QueryGames {
-    games {
+    games (pagination: { limit: $limit }) {
       data {
         id
         attributes {
@@ -26,6 +26,12 @@ export const QUERY_GAMES = gql`
           }
           price
           description
+        }
+      }
+      meta {
+        pagination {
+          total
+          page
         }
       }
     }
