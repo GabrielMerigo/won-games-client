@@ -19,6 +19,7 @@ export type GameTemplateProps = {
   upcomingGames: GameCardProps[],
   upcomingHighlight: HighlightProps,
   recommendGames: GameCardProps[],
+  data: any
 }
 
 const Game = ({

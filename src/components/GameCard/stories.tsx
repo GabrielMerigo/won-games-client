@@ -1,10 +1,11 @@
-import { Meta, Story } from '@storybook/react';
+import { Story } from '@storybook/react';
 import GameCard, { GameCardProps } from '.';
 
 export default {
   title: `GameCard`,
   component: GameCard,
   args: {
+    slug: 'population-zero',
     title: "Population Zero",
     developer: "Rockstar Games",
     img: "/img/banner-game-card.jpg",

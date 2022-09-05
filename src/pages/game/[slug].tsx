@@ -3,59 +3,76 @@ import Game, { GameTemplateProps } from '../../templates/Game/'
 import galleryMock from '../../components/Gallery/mock';
 import gamesMock from '../../components/GameCardSlider/mock';
 import highlightMock from '../../components/Highlight/mock';
+import { useRouter } from 'next/router';
+import { initializeApollo } from 'utils/apollo';
+import { QueryGames, QueryGameVariables } from 'types/types_queries/QUERY_GAMES';
+import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games';
+
+const apolloClient = initializeApollo();
 
 export default function Index(props: GameTemplateProps) {
+  const router = useRouter();
+  console.log(props.data)
+  if (router.isFallback) return null;
+
   return (
-    <Game {...props} />
+    <h1>teste</h1>
+    // <Game {...props} />
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [{ params: { slug: 'cyberpunk-2077' } }],
-    fallback: false
-  }
+export async function getStaticPaths() {
+  const { data } = await apolloClient.query<QueryGames, QueryGameVariables>({
+    query: QUERY_GAMES,
+    variables: { limit: 9 }
+  });
+
+  const paths = data.games.data.map(game => ({
+    params: { slug: game.attributes.slug }
+  }))
+
+  return { paths, fallback: true };
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const descriptionHTML = `<img src="https://items.gog.com/not_a_cp/ENG_product-page-addons-2020_yellow_on_black.png"><br>
-    * Exclusive Digital Comic - Cyberpunk 2077: Big City Dreams will be available in English only.
-    <hr><p class="module">Korean Voiceover will be added on 11th December 2020.</p><br><img alt="" src="https://items.gog.com/not_a_cp/EN/EN-About-the-Game.png"><br><br><b>Cyberpunk 2077</b> is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. You can customize your character’s cyberware, skillset and playstyle, and explore a vast city where the choices you make shape the story and the world around you.
-    <br><br><img alt="" src="https://items.gog.com/not_a_cp/EN/EN-Mercenary-Outlaw.png"><br><br>
-    Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build your legend on the streets of Night City.
-    <br><br><img alt="" src="https://items.gog.com/not_a_cp/EN/EN-City-of-the-Future.png"><br><br>
-    Enter the massive open world of Night City, a place that sets new standards in terms of visuals, complexity and depth.
-    <br><br><img alt="" src="https://items.gog.com/not_a_cp/EN/EN-Eternal-Life.png"><br><br>
-    Take the riskiest job of your life and go after a prototype implant that is the key to immortality.
 
-    <p class="description__copyrights">
-    CD PROJEKT®, Cyberpunk®, Cyberpunk 2077® are registered trademarks of CD PROJEKT S.A. © 2019
-    CD PROJEKT S.A. All rights reserved. All other copyrights and trademarks are the property of their
-    respective owners.
-    </p>`
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const { data } = await apolloClient.query({
+    query: QUERY_GAME_BY_SLUG,
+    variables: {
+      slug: `${params?.slug}`
+    }
+  });
+
+  // if (!data.games.length) {
+  //   return { notFound: true }
+  // }
+
+  console.log(data.games.data[0].attributes, 'teste')
 
   return {
     props: {
-      cover: 'https://cdn1.epicgames.com/offer/77f2b98e2cef40c8a7437518bf420e47/EGS_Cyberpunk2077_CDPROJEKTRED_S1_03_2560x1440-359e77d3cd0a40aebf3bbc130d14c5c7',
-      gameInfo: {
-        title: 'Cyberpunk 2077',
-        price: '59.00',
-        description:
-          'Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality'
-      },
-      gallery: galleryMock,
-      description: descriptionHTML,
-      details: {
-        developer: 'CD PROJEKT RED',
-        releaseDate: '2020-12-10T23:00:00',
-        platforms: ['windows'],
-        publisher: 'CD PROJEKT RED',
-        rating: 'BR18',
-        genres: ['Action', 'Role-playing']
-      },
-      upcomingGames: gamesMock,
-      upcomingHighlight: highlightMock,
-      recommendGames: gamesMock
+      data
     }
   }
 }
+
+// revalidade: 60,
+//       cover: `http://localhost:1337/`,
+//       gameInfo: {
+//         title: 'Cyberpunk 2077',
+//         price: '59.00',
+//         description:
+//           'Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality'
+//       },
+//       gallery: galleryMock,
+//       details: {
+//         developer: 'CD PROJEKT RED',
+//         releaseDate: '2020-12-10T23:00:00',
+//         platforms: ['windows'],
+//         publisher: 'CD PROJEKT RED',
+//         rating: 'BR18',
+//         genres: ['Action', 'Role-playing']
+//       },
+//       upcomingGames: gamesMock,
+//       upcomingHighlight: highlightMock,
+//       recommendGames: gamesMock
