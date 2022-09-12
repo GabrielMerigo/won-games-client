@@ -1,78 +1,88 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import Game, { GameTemplateProps } from '../../templates/Game/'
-import galleryMock from '../../components/Gallery/mock';
-import gamesMock from '../../components/GameCardSlider/mock';
-import highlightMock from '../../components/Highlight/mock';
-import { useRouter } from 'next/router';
-import { initializeApollo } from 'utils/apollo';
-import { QueryGames, QueryGameVariables } from 'types/types_queries/QUERY_GAMES';
-import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games';
+import { useRouter } from 'next/router'
+import { initializeApollo } from 'utils/apollo'
 
-const apolloClient = initializeApollo();
+import Game, { GameTemplateProps } from 'templates/Game'
+
+import galleryMock from 'components/Gallery/mock'
+import gamesMock from 'components/GameCardSlider/mock'
+import highlightMock from 'components/Highlight/mock'
+import { QueryGames, QueryGamesVariables } from 'types/types_queries/QUERY_GAMES'
+import { QUERY_GAMES, QUERY_GAME_BY_SLUG } from 'graphql/queries/games'
+import {
+  QueryGameBySlug,
+  QueryGameBySlugVariables
+} from 'types/types_queries/QUERY_GAME_BY_SLUG';
+
+import { GetStaticProps } from 'next'
+
+const apolloClient = initializeApollo()
 
 export default function Index(props: GameTemplateProps) {
-  const router = useRouter();
-  console.log(props.data)
-  if (router.isFallback) return null;
+  const router = useRouter()
+  console.log(props);
 
-  return (
-    <h1>teste</h1>
-    // <Game {...props} />
-  )
+  // se a rota não tiver sido gerada ainda
+  // você pode mostrar um loading
+  // uma tela de esqueleto
+  if (router.isFallback) return null
+
+  return <Game {...props} />
 }
 
+// gerar em build time (/game/bla, /bame/foo ...)
 export async function getStaticPaths() {
-  const { data } = await apolloClient.query<QueryGames, QueryGameVariables>({
+  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
     query: QUERY_GAMES,
     variables: { limit: 9 }
-  });
+  })
 
-  const paths = data.games.data.map(game => ({
-    params: { slug: game.attributes.slug }
+  const paths = data.games.map(({ slug }) => ({
+    params: { slug }
   }))
 
-  return { paths, fallback: true };
+  return { paths, fallback: true }
 }
 
-
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { data } = await apolloClient.query({
+  const { data } = await apolloClient.query<
+    QueryGameBySlug,
+    QueryGameBySlugVariables
+  >({
     query: QUERY_GAME_BY_SLUG,
-    variables: {
-      slug: `${params?.slug}`
-    }
-  });
+    variables: { slug: `${params?.slug}` }
+  })
 
-  // if (!data.games.length) {
-  //   return { notFound: true }
-  // }
+  if (!data.games.length) {
+    return { notFound: true }
+  }
 
-  console.log(data.games.data[0].attributes, 'teste')
+  const game = data.games[0]
 
   return {
     props: {
-      data
+      revalidate: 1,
+      cover: `http://localhost:1337${game.cover?.src}`,
+      gameInfo: {
+        title: game.name,
+        price: game.price,
+        description: game.short_description
+      },
+      gallery: game.gallery.map((image) => ({
+        src: `http://localhost:1337${image.src}`,
+        label: image.label
+      })),
+      description: game.description,
+      details: {
+        developer: game.developers[0].name,
+        releaseDate: game.release_date,
+        platforms: game.platforms.map((platform) => platform.name),
+        publisher: game.publisher?.name,
+        rating: game.rating,
+        genres: game.categories.map((category) => category.name)
+      },
+      upcomingGames: gamesMock,
+      upcomingHighlight: highlightMock,
+      recommendedGames: gamesMock
     }
   }
 }
-
-// revalidade: 60,
-//       cover: `http://localhost:1337/`,
-//       gameInfo: {
-//         title: 'Cyberpunk 2077',
-//         price: '59.00',
-//         description:
-//           'Cyberpunk 2077 is an open-world, action-adventure story set in Night City, a megalopolis obsessed with power, glamour and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality'
-//       },
-//       gallery: galleryMock,
-//       details: {
-//         developer: 'CD PROJEKT RED',
-//         releaseDate: '2020-12-10T23:00:00',
-//         platforms: ['windows'],
-//         publisher: 'CD PROJEKT RED',
-//         rating: 'BR18',
-//         genres: ['Action', 'Role-playing']
-//       },
-//       upcomingGames: gamesMock,
-//       upcomingHighlight: highlightMock,
-//       recommendGames: gamesMock

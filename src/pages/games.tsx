@@ -3,7 +3,7 @@ import GamesTemplate, { GamesTemplateProps } from '../templates/Games'
 import filterItemsMock from '../components/ExploreSidebar/mock';
 import { initializeApollo } from "utils/apollo";
 import { QUERY_GAMES } from "graphql/queries/games";
-import { QueryGames, QueryGameVariables } from "types/types_queries/QUERY_GAMES";
+import { QueryGames, QueryGamesVariables } from "types/types_queries/QUERY_GAMES";
 
 export default function GamesPage({ games, filterItems }: GamesTemplateProps) {
   return (<GamesTemplate games={games} filterItems={filterItems} />)
@@ -12,22 +12,22 @@ export default function GamesPage({ games, filterItems }: GamesTemplateProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query<QueryGames, QueryGameVariables>({
+  const { data } = await apolloClient.query<QueryGames, QueryGamesVariables>({
     query: QUERY_GAMES,
     variables: {
       limit: 9
     }
   })
 
-  const games = data.games.data.map((game) => ({
-    title: game.attributes.name,
-    developer: game.attributes.developers.data[0].attributes.name,
-    slug: game.attributes.slug,
-    img: `http://localhost:1337${game.attributes.cover!.data.attributes.url}`,
+  const games = data.games.map((game) => ({
+    title: game.name,
+    slug: game.slug,
+    developer: game.developers[0].name,
+    img: `http://localhost:1337${game.cover!.url}`,
     price: new Intl.NumberFormat('en', {
       style: 'currency',
       currency: 'USD'
-    }).format(game.attributes.price),
+    }).format(game.price)
   }))
 
   return {

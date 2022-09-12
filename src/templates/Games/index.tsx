@@ -13,24 +13,28 @@ export type GamesTemplateProps = {
   apolloClient?: any;
 }
 
-const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => (
-  <Base>
-    <S.Main>
-      <ExploreSidebar items={filterItems} onFilter={() => { }} />
-      <section>
-        <Grid>
-          {games?.map(item => (
-            <GameCard key={item.title} {...item} />
-          ))}
-        </Grid>
+const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => {
 
-        <S.ShowMore role="button" onClick={() => { }}>
-          <p>Show more</p>
-          <ArrowDown size={35} />
-        </S.ShowMore>
-      </section>
-    </S.Main>
-  </Base>
-)
+
+  return (
+    <Base>
+      <S.Main>
+        <ExploreSidebar items={filterItems} onFilter={() => { }} />
+        <section>
+          <Grid>
+            {games?.map(item => (
+              <GameCard key={item.title} {...item} />
+            ))}
+          </Grid>
+
+          <S.ShowMore role="button" onClick={() => { }}>
+            <p>Show more</p>
+            <ArrowDown size={35} />
+          </S.ShowMore>
+        </section>
+      </S.Main>
+    </Base>
+  )
+}
 
 export default GamesTemplate
