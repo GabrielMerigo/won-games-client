@@ -8,26 +8,29 @@ const GameCard: GameCardProps[] = [
     title: 'Cyberpunk',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00',
+    price: 215,
+    promotionalPrice: 215,
     ribbon: '10% OFF',
-    ribbonSize: ribbonSize
+    ribbonSize: ribbonSize,
+    slug: '/teste'
   },
   {
     title: 'Population Zero',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 215,
+    promotionalPrice: 215,
+    slug: '/teste'
   },
   {
     title: 'RD2',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00',
+    price: 215,
+    promotionalPrice: 215,
     ribbon: '10% OFF',
-    ribbonSize: 'small'
+    ribbonSize: 'small',
+    slug: '/teste'
   }
 ]
 

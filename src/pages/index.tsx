@@ -4,6 +4,7 @@ import gamesMock from '../components/GameCardSlider/mock'
 import highlightMock from '../components/Highlight/mock'
 
 export default function Index(props: HomeTemplateProps) {
+  console.log(props)
   return (
     <Home {...props} />
   );
