@@ -14,7 +14,6 @@ const props = {
   mostPopularGames: [gamesMock[0]],
   upcomingGames: [gamesMock[0]],
   upcomingHighlight: highlightMock,
-  upcomingMoreGames: [gamesMock[0]],
   freeGames: [gamesMock[0], gamesMock[1]],
   freeHighlight: highlightMock
 }
@@ -32,7 +31,7 @@ describe('<Home />', () => {
 
     expect(screen.getByRole('heading', { name: /New Release/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Most Popular/i })).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /Up Coming/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /Upcoming Games/i })).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: /Free Games/i })).toBeInTheDocument();
   })
 

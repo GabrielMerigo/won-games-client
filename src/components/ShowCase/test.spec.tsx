@@ -19,43 +19,49 @@ const items = [
     title: 'Population Zero 1',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   },
   {
     title: 'Population Zero 2',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x141',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   },
   {
     title: 'Population Zero 3',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x142',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   },
   {
     title: 'Population Zero 4',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x143',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   },
   {
     title: 'Population Zero 5',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x144',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   },
   {
     title: 'Population Zero 6',
     developer: 'Rockstar Games',
     img: 'https://source.unsplash.com/user/willianjusten/300x145',
-    price: 'R$ 235,00',
-    promotionalPrice: 'R$ 215,00'
+    price: 235,
+    promotionalPrice: 215,
+    slug: "teste"
   }
 ]
 
@@ -64,7 +70,7 @@ describe('<ShowCase />', () => {
   it('should render title when property title is passed', () => {
     renderWithTheme(<ShowCase title="Up comming" highlight={propsHighlight} games={items} />)
     expect(screen.getByText(/Up comming/i)).toBeInTheDocument();
-    expect(screen.getByRole('heading', {  name: 'Heading 1' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Heading 1' })).toBeInTheDocument();
     expect(document.querySelectorAll('.slick-slide')).toHaveLength(6);
   });
 

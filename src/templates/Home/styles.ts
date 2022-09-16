@@ -73,10 +73,6 @@ export const SectionBanner = styled(Section)`
   `}
 `
 
-export const SectionUpComing = styled(Section)`
-  ${({ theme }) => css``}
-`
-
 export const SectionFreeGames = styled(Section)`
   ${({ theme }) => css``}
 `
