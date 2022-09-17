@@ -40,6 +40,7 @@ export const Wrapper = styled.section`
     -ms-transform: translate3d(0, 0, 0);
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+    height: auto !important;
   }
   .slick-track {
     position: relative;

@@ -1,11 +1,10 @@
 import Home, { HomeTemplateProps } from '../templates/Home'
-import bannersMock from '../components/BannerSlider/mock';
 import gamesMock from '../components/GameCardSlider/mock'
-import highlightMock from '../components/Highlight/mock'
 import { initializeApollo } from 'utils/apollo';
-import { QueryHome } from 'types/types_queries/QUERY_HOME';
+import { QueryHome, QueryHomeVariables } from 'types/types_queries/QUERY_HOME';
 import { QUERY_HOME } from 'graphql/queries/home';
 import { GetStaticProps } from 'next';
+import { bannersMapper, gamesMapper, highlightMapper } from 'utils/mappers';
 
 export default function Index(props: HomeTemplateProps) {
   return (
@@ -15,56 +14,37 @@ export default function Index(props: HomeTemplateProps) {
 
 export const getStaticProps: GetStaticProps = async () => {
   const apolloClient = initializeApollo();
+  const TODAY = new Date().toISOString().slice(0, 10);
+
   const {
     data: {
       banners,
       newGames,
       upcomingGames,
-      freeGames
+      freeGames,
+      sections
     }
-  } = await apolloClient.query<QueryHome>({ query: QUERY_HOME });
+  } = await apolloClient.query<QueryHome, QueryHomeVariables>({
+    query: QUERY_HOME,
+    variables: { date: TODAY }
+  });
 
   return {
     props: {
       revalidade: 60,
-      banners: banners.map((banner) => ({
-        img: `http://localhost:1337${banner.image?.url}`,
-        title: banner.title,
-        subtitle: banner.subtitle,
-        buttonLabel: banner.button?.label,
-        buttonLink: banner.button?.link,
-        ...(banner.ribbon && {
-          ribbon: banner.ribbon.text,
-          ribbonColor: banner.ribbon.color,
-          ribbonSize: banner.ribbon.size
-        })
-      })),
-      newGames: newGames.map(game => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      mostPopularHighlight: highlightMock,
-      mostPopularGames: gamesMock,
-      upcomingGames: upcomingGames.map(game => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      upcomingHighlight: highlightMock,
+      banners: bannersMapper(banners),
+      newGames: gamesMapper(newGames),
+      newGamesTitle: sections?.newGames?.title,
+      mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),
+      mostPopularGames: gamesMapper(sections!.popularGames!.games),
+      mostPopularGamesTitle: sections?.popularGames?.title,
+      upcomingGames: gamesMapper(upcomingGames),
+      upcomingHighlight: highlightMapper(sections?.upcomingGames?.highlight),
       upcomingMoreGames: gamesMock,
-      freeGames: freeGames.map(game => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      })),
-      freeHighlight: highlightMock
+      upcomingGamesTitle: sections?.upcomingGames?.title,
+      freeGamesTitle: sections?.freeGames?.title,
+      freeGames: gamesMapper(freeGames),
+      freeHighlight: highlightMapper(sections?.freeGames?.highlight)
     }
   }
 }

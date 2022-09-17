@@ -12,7 +12,7 @@ const GameCard: GameCardProps[] = [
     promotionalPrice: 215,
     ribbon: '10% OFF',
     ribbonSize: ribbonSize,
-    slug: '/teste'
+    slug: 'teste'
   },
   {
     title: 'Population Zero',
@@ -20,7 +20,7 @@ const GameCard: GameCardProps[] = [
     img: 'https://source.unsplash.com/user/willianjusten/300x140',
     price: 215,
     promotionalPrice: 215,
-    slug: '/teste'
+    slug: 'teste'
   },
   {
     title: 'RD2',
@@ -30,7 +30,7 @@ const GameCard: GameCardProps[] = [
     promotionalPrice: 215,
     ribbon: '10% OFF',
     ribbonSize: 'small',
-    slug: '/teste'
+    slug: 'teste'
   }
 ]
 

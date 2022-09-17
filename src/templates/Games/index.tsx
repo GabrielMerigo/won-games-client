@@ -14,8 +14,6 @@ export type GamesTemplateProps = {
 }
 
 const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => {
-
-
   return (
     <Base>
       <S.Main>
