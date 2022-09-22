@@ -9,7 +9,7 @@ export default function WishlistPage(props: WishlistTemplateProps) {
 export async function getStaticProps() {
   return {
     props: {
-      games: gamesMock,
+      games: [],
       recommendGames: gamesMock,
       recommendHighlight: highlightMock
     }

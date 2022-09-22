@@ -44,7 +44,7 @@ const Wishlist = ({ recommendGames, recommendHighlight, games }: WishlistTemplat
       <Divider />
     </Container>
     <ShowCase
-      title="You my like these games"
+      title="You may like these games"
       games={recommendGames}
       highlight={recommendHighlight}
     />

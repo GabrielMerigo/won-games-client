@@ -19,14 +19,14 @@ describe('<GameCard />', () => {
     expect(screen.getByRole('heading', { name: props.developer })).toBeInTheDocument()
     expect(screen.getByRole('img', { name: props.title })).toHaveAttribute('src', props.img);
     expect(screen.getByRole('link', { name: props.title })).toHaveAttribute('href', `/game/${props.slug}`);
-    expect(screen.getByText(props.price)).toBeInTheDocument();
+    expect(screen.getByText("$230.00")).toBeInTheDocument();
     expect(screen.getByLabelText(/Add to wishlist/i)).toBeInTheDocument();
   })
 
   it('should render price in label', () => {
     renderWithTheme(<GameCard {...props} />);
 
-    const price = screen.getByText(props.price)
+    const price = screen.getByText('$230.00')
     expect(price).not.toHaveStyle({ 'text-decoration': 'line-through' });
     expect(price).not.toHaveStyle({ 'color': '#8F8F8F' });
     expect(price).toHaveStyle({ 'background-color': '#3CD3C1' });

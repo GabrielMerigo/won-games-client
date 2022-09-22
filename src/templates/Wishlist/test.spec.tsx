@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, waitFor } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import gamesMock from '../../components/GameCardSlider/mock';
 import highlightMock from '../../components/Highlight/mock';
@@ -30,7 +30,7 @@ describe('<Wishlist />', () => {
     expect(screen.getByTestId('Mock ShowCase')).toBeInTheDocument();
   })
 
-  it('should render empty when there are no Games', () => {
+  it('should render empty when there are no Games', async () => {
     renderWithTheme(
       <Wishlist
         recommendGames={gamesMock}
@@ -39,6 +39,7 @@ describe('<Wishlist />', () => {
     );
 
     expect(screen.queryByText(/population zero/i)).not.toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /your wishlist is empty/i })).toBeInTheDocument();
+    expect(screen.getByText(/your wishlist is empty/i)).toBeInTheDocument();
+
   })
 })

@@ -13,6 +13,7 @@ const FormProfile = () => (
 
     <S.Form>
       <TextField
+        role="textbox"
         name="name"
         placeholder="Name"
         label="Name"
@@ -31,6 +32,7 @@ const FormProfile = () => (
       />
 
       <TextField
+        id='password'
         name="password"
         placeholder="type your password"
         label="Password"
@@ -40,6 +42,8 @@ const FormProfile = () => (
       />
 
       <TextField
+        labelFor='new_password'
+        id='new_password'
         name="new_password"
         placeholder="type your new password"
         label="New Password"

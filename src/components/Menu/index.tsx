@@ -1,7 +1,6 @@
 import * as S from './styles';
 import { useState } from 'react';
 import { Menu2 as MenuIcon } from '@styled-icons/remix-fill/Menu2';
-import { ShoppingCart as ShoppingCartIcon } from '@styled-icons/material-outlined/ShoppingCart';
 import { Search as SearchIcon } from '@styled-icons/material-outlined/Search';
 import Logo from '../../components/Logo';
 import { Close as CloseIcon } from '@styled-icons/material-outlined/Close';
@@ -86,7 +85,7 @@ const Menu = ({ username }: MenuProps) => {
           {!!username && (
             <>
               <Link href="/profile/me">
-                <S.MenuLink href="#">My profile</S.MenuLink>
+                <S.MenuLink href="#">My account</S.MenuLink>
               </Link>
               <Link href="/wishlist">
                 <S.MenuLink href="#">Wishlist</S.MenuLink>
@@ -98,11 +97,11 @@ const Menu = ({ username }: MenuProps) => {
         {!username && (
           <S.RegisterBox>
             <Link href="/sign-in" passHref>
-              <Button fullWidth size="large" as="a">
+              <Button role="link" fullWidth size="large" as="a">
                 Sign in
               </Button>
             </Link>
-            <span>ou</span>
+            <span>or</span>
             <Link href="/sign-up" passHref>
               <S.CreateAccount title="Sign Up">Sign Up</S.CreateAccount>
             </Link>
