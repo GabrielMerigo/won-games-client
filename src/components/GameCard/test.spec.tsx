@@ -67,4 +67,10 @@ describe('<GameCard />', () => {
 
     expect(screen.getByText(/20% 0FF/i)).toBeInTheDocument()
   });
+
+  it('should render FREE when games is free', () => {
+    renderWithTheme(<GameCard {...props} price={0} ribbon='20% 0FF' ribbonColor='primary' ribbonSize='small' />);
+
+    expect(screen.getByText(/FREE/i)).toBeInTheDocument();
+  });
 })

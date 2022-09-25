@@ -32,8 +32,8 @@ export const highlightMapper = (highlight: QueryHome_sections_freeGames_highligh
         title: highlight.title,
         subtitle: highlight.subtitle,
         buttonLabel: highlight.buttonLabel,
-        floatImage: `http://localhost:1337${highlight.buttonLink}`,
-        buttonLink: `http://localhost:1337${highlight.floatImage?.url}`,
+        floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
+        buttonLink: `http://localhost:1337${highlight.buttonLink}`,
         backgroundImage: `http://localhost:1337${highlight.background?.url}`,
         alignment: highlight.alignment
     }

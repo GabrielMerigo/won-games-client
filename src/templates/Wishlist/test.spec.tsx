@@ -1,4 +1,4 @@
-import { screen, waitFor } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import gamesMock from '../../components/GameCardSlider/mock';
 import highlightMock from '../../components/Highlight/mock';

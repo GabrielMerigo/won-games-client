@@ -7,6 +7,7 @@ export const Wrapper = styled.article`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    min-height: 270px;
     background-color: ${theme.colors.white};
   `}
 `

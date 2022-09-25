@@ -4,8 +4,11 @@ import filterItemsMock from '../components/ExploreSidebar/mock';
 import { initializeApollo } from "utils/apollo";
 import { QUERY_GAMES } from "graphql/queries/games";
 import { QueryGames, QueryGamesVariables } from "types/types_queries/QUERY_GAMES";
+import { useQuery } from "@apollo/client";
 
-export default function GamesPage({ games, filterItems }: GamesTemplateProps) {
+export default function Games({ games, filterItems }: GamesTemplateProps) {
+  // const { data, loading, error } = useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, { variables: { limit: 15 }})
+
   return (<GamesTemplate games={games} filterItems={filterItems} />)
 }
 
