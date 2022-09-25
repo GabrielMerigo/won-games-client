@@ -12,7 +12,7 @@ export const QUERY_HOME = gql`
     newGames: games(
       where: { release_date_lte: $date }
       sort: "release_date:desc"
-      limit: 4
+      limit: 10
     ) {
       ...GameFragment
     }

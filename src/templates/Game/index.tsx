@@ -19,8 +19,8 @@ export type GameTemplateProps = {
   upcomingGames: GameCardProps[],
   upcomingHighlight: HighlightProps,
   recommendGames: GameCardProps[],
-  recommendTitle: string
-  data: any
+  recommendTitle: string,
+  upcomingTitle: string,
 }
 
 const Game = ({
@@ -32,7 +32,8 @@ const Game = ({
   upcomingGames,
   upcomingHighlight,
   recommendGames,
-  recommendTitle
+  recommendTitle,
+  upcomingTitle
 }: GameTemplateProps) => (
   <Base>
     <S.Cover src={cover} role="image" aria-label="cover"></S.Cover>
@@ -55,7 +56,7 @@ const Game = ({
         <Divider />
       </S.SectionGameDetails>
 
-      <ShowCase title="Upcoming" games={upcomingGames} highlight={upcomingHighlight} />
+      <ShowCase title={upcomingTitle} games={upcomingGames} highlight={upcomingHighlight} />
       <ShowCase title={recommendTitle} games={recommendGames} />
     </S.Main>
   </Base>
