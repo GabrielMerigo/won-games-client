@@ -12,36 +12,50 @@ import { QueryGames, QueryGamesVariables } from 'types/types_queries/QUERY_GAMES
 
 export type GamesTemplateProps = {
   games?: GameCardProps[],
-  filterItems: ItemsProps[],
-  apolloClient?: any;
+  filterItems: ItemsProps[]
 }
 
-const GamesTemplate = ({ games, filterItems }: GamesTemplateProps) => {
-  const { data } = useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, { variables: { limit: 15 }})
+const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
+  const { data, loading, fetchMore } = useQuery<QueryGames, QueryGamesVariables>(QUERY_GAMES, { variables: { limit: 15 }});
+
+  function handleShowMore(){
+    fetchMore({
+      variables: {
+        limit: 15,
+        start: data?.games.length
+      }
+    });
+  }
 
   return (
     <Base>
       <S.Main>
         <ExploreSidebar items={filterItems} onFilter={() => { }} />
-        <section>
-          <Grid>
-            {data?.games.map((game) => (
-              <GameCard
-                key={game.slug}
-                title={game.name}
-                slug={game.slug}
-                developer={game.developers[0].name}
-                img={`http://localhost:1337${game.cover!.url}`}
-                price={game.price}
-                />
-            ))}
-          </Grid>
 
-          <S.ShowMore role="button" onClick={() => { }}>
-            <p>Show more</p>
-            <ArrowDown size={35} />
-          </S.ShowMore>
-        </section>
+        {loading ? (
+          <p style={{ color: '#FFF'}}>Loading...</p>
+        ) : (
+          <section>
+            <Grid>
+              {data?.games.map((game) => (
+                <GameCard
+                  key={game.slug}
+                  title={game.name}
+                  slug={game.slug}
+                  developer={game.developers[0].name}
+                  img={`http://localhost:1337${game.cover!.url}`}
+                  price={game.price}
+                />
+              ))}
+            </Grid>
+
+            <S.ShowMore role="button" onClick={handleShowMore}>
+              <p>Show more</p>
+              <ArrowDown size={35} />
+            </S.ShowMore>
+          </section>
+        )}
+
       </S.Main>
     </Base>
   )
