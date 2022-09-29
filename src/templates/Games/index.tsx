@@ -9,8 +9,8 @@ import { Grid } from '../../components/Grid'
 import { useQueryGames } from 'graphql/queries/games';
 
 export type GamesTemplateProps = {
-  games?: GameCardProps[],
-  filterItems: ItemsProps[]
+  games?: GameCardProps[];
+  filterItems: ItemsProps[];
 }
 
 const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
