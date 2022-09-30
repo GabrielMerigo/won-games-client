@@ -5,6 +5,8 @@ import Heading from '../../components/Heading'
 import * as S from './styles'
 import { useState } from 'react'
 import { Close, FilterList } from 'styled-icons/material-outlined'
+import { ParsedUrlQueryInput } from 'querystring'
+import xor from 'lodash.xor'
 
 type Field = {
   label: string,
@@ -18,9 +20,7 @@ export type ItemsProps = {
   fields: Field[]
 }
 
-export type Values = {
-  [field: string]: boolean | string
-}
+export type Values = ParsedUrlQueryInput;
 
 export type ExploreSidebarProps = {
   items: ItemsProps[],
@@ -37,8 +37,13 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
     onFilter(values);
   }
 
-  const handleChange = (name: string, value: string | boolean) => {
+  const handleRadio = (name: string, value: string | boolean) => {
     setValues((state) => ({ ...state, [name]: value }))
+  }
+
+  const handleCheckbox = (name: string, value: string) => {
+    const currentList = (values[name] as []) || [];
+    setValues((state) => ({ ...state, [name]: xor(currentList, [value]) }))
   }
 
   return (
@@ -64,8 +69,8 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
                   name={field.name}
                   label={field.label}
                   labelFor={field.name}
-                  isChecked={!!values[field.name]}
-                  onCheck={(value) => handleChange(field.name, value)}
+                  isChecked={(values[item.name] as string[])?.includes(field.name)}
+                  onCheck={(value) => handleCheckbox(item.name, field.name)}
                 />
               ))
             )}
@@ -79,8 +84,8 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
                   name={item.name}
                   label={field.label}
                   labelFor={field.name}
-                  defaultChecked={field.name === values[item.name]}
-                  onCheck={() => handleChange(item.name, field.name)}
+                  defaultChecked={String(field.name) === String(values[item.name])}
+                  onCheck={() => handleRadio(item.name, field.name)}
                 />
               ))
             )}

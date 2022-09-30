@@ -77,9 +77,7 @@ describe('<Games />', () => {
       </MockedProvider>
     );
 
-
     userEvent.click(await screen.findByRole('button', { name: /show more/i }));
     expect(await screen.findByText(/Fetch More Game/i)).toBeInTheDocument();
-    screen.logTestingPlaygroundURL();
   })
 })
