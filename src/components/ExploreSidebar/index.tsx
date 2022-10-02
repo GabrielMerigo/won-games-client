@@ -3,7 +3,7 @@ import Button from '../../components/Button'
 import Radio from '../../components/Radio'
 import Heading from '../../components/Heading'
 import * as S from './styles'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Close, FilterList } from 'styled-icons/material-outlined'
 import { ParsedUrlQueryInput } from 'querystring'
 import xor from 'lodash.xor'
@@ -32,11 +32,6 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
   const [values, setValues] = useState<Values>(initialValues);
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleFilter = () => {
-    setIsOpen(false);
-    onFilter(values);
-  }
-
   const handleRadio = (name: string, value: string | boolean) => {
     setValues((state) => ({ ...state, [name]: value }))
   }
@@ -45,6 +40,16 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
     const currentList = (values[name] as []) || [];
     setValues((state) => ({ ...state, [name]: xor(currentList, [value]) }))
   }
+
+  const handleFilterMenu = () => {
+    setIsOpen(false);
+  }
+
+  useEffect(() => {
+    onFilter(values);
+  }, [values]);
+
+  console.log(items);
 
   return (
     <S.Wrapper isOpen={isOpen}>
@@ -94,7 +99,7 @@ const ExploreSidebar = ({ items, initialValues = {}, onFilter }: ExploreSidebarP
       </S.Content>
 
       <S.Footer>
-        <Button onClick={handleFilter} fullWidth size="medium">Filter</Button>
+        <Button onClick={handleFilterMenu} fullWidth size="medium">Filter</Button>
       </S.Footer>
     </S.Wrapper>
   )

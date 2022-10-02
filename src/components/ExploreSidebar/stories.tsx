@@ -11,7 +11,8 @@ export default {
     }
   },
   args: {
-    items: ItemsMock
+    items: ItemsMock,
+    onFilter: () => console.log('teste')
   }
 } as Meta
 

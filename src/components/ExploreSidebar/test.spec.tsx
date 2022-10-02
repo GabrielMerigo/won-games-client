@@ -72,8 +72,9 @@ describe('<ExploreSidebar />', () => {
 
     userEvent.click(screen.getByRole('checkbox', { name: /windows/i }));
     userEvent.click(screen.getByRole('radio', { name: /low to high/i }));
-    userEvent.click(screen.getByRole('button', { name: /Filter/i }));
+    userEvent.click(screen.getByRole('button', { name: /filter/i }));
 
+    expect(onFilter).toHaveBeenCalledTimes(3);
     expect(onFilter).toBeCalledWith({ platforms: ['windows'], sort_by: 'low-to-high' })
   })
 
@@ -89,7 +90,6 @@ describe('<ExploreSidebar />', () => {
     userEvent.click(screen.getByLabelText(/low to high/i));
     userEvent.click(screen.getByLabelText(/high to low/i));
 
-    userEvent.click(screen.getByRole('button', { name: /Filter/i }));
     expect(onFilter).toHaveBeenCalledWith({ sort_by: 'high-to-low' });
   })
 
@@ -114,6 +114,9 @@ describe('<ExploreSidebar />', () => {
 
     expect(Element).toHaveStyleRule('opacity', '1', variant);
     userEvent.click(screen.getByLabelText(/close filters/i));
+    expect(Element).not.toHaveStyleRule('opacity', '1', variant);
+
+    userEvent.click(screen.getByRole('button', { name: /filter/i}));
     expect(Element).not.toHaveStyleRule('opacity', '1', variant);
   })
 })
