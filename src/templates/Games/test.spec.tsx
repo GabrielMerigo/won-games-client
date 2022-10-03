@@ -10,6 +10,16 @@ import { fetchMoreMock, gamesMock } from './mocks';
 import { userEvent } from '@storybook/testing-library';
 import apolloCache from 'utils/apolloCache';
 
+const useRouter = jest.spyOn(require('next/router'), 'useRouter');
+const push = jest.fn();
+
+useRouter.mockImplementation(() => ({
+  push,
+  query: '',
+  asPath: '',
+  route: '/'
+}))
+
 jest.mock('templates/Base', () => {
   return {
     __esModule: true,

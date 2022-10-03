@@ -21,7 +21,7 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
 
   const { data, loading, fetchMore } = useQueryGames({
     variables: {
-      limit: 5,
+      limit: 15,
       where: parseQueryStringToWhere({ queryString: query, filterItems }),
       sort: query.sort as string | null
     }
