@@ -4,7 +4,7 @@ import { initializeApollo } from 'utils/apollo';
 import { QueryHome, QueryHomeVariables } from 'types/types_queries/QUERY_HOME';
 import { QUERY_HOME } from 'graphql/queries/home';
 import { GetStaticProps } from 'next';
-import { bannersMapper, gamesMapper, highlightMapper } from 'utils/mappers';
+import { bannerMapper, gamesMapper, highlightMapper } from 'utils/mappers';
 
 export default function Index(props: HomeTemplateProps) {
   return (
@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       revalidade: 60,
-      banners: bannersMapper(banners),
+      banners: bannerMapper(banners),
       newGames: gamesMapper(newGames),
       newGamesTitle: sections?.newGames?.title,
       mostPopularHighlight: highlightMapper(sections?.popularGames?.highlight),

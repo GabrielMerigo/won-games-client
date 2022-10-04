@@ -1,6 +1,8 @@
-import { QueryHome_banners, QueryHome_newGames, QueryHome_sections_freeGames_highlight } from "types/types_queries/QUERY_HOME";
+import { QueryGames_games } from "types/types_queries/QUERY_GAMES"
+import { QueryHome_banners, QueryHome_sections_freeGames_highlight } from "types/types_queries/QUERY_HOME"
 
-export const bannersMapper = (banners: QueryHome_banners[]) => {
+
+export const bannerMapper = (banners: QueryHome_banners[]) => {
   return banners.map((banner) => ({
     img: `http://localhost:1337${banner.image?.url}`,
     title: banner.title,
@@ -15,27 +17,31 @@ export const bannersMapper = (banners: QueryHome_banners[]) => {
   }))
 }
 
-export const gamesMapper = (games: QueryHome_newGames[] | null | undefined) => {
-  return (games && games.map(game => ({
-        title: game.name,
-        slug: game.slug,
-        developer: game.developers[0].name,
-        img: `http://localhost:1337${game.cover?.url}`,
-        price: game.price
-      }))
-    )
+export const gamesMapper = (games: QueryGames_games[] | null | undefined) => {
+  return (
+    games &&
+    games.map((game) => ({
+      title: game.name,
+      slug: game.slug,
+      developer: game.developers[0].name,
+      img: `http://localhost:1337${game.cover?.url}`,
+      price: game.price
+    }))
+  )
 }
 
-export const highlightMapper = (highlight: QueryHome_sections_freeGames_highlight | null | undefined) => {
+export const highlightMapper = (
+  highlight: QueryHome_sections_freeGames_highlight | null | undefined
+) => {
   return (
     highlight && {
-        title: highlight.title,
-        subtitle: highlight.subtitle,
-        buttonLabel: highlight.buttonLabel,
-        floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
-        buttonLink: `http://localhost:1337${highlight.buttonLink}`,
-        backgroundImage: `http://localhost:1337${highlight.background?.url}`,
-        alignment: highlight.alignment
+      title: highlight.title,
+      subtitle: highlight.subtitle,
+      backgroundImage: `http://localhost:1337${highlight.background?.url}`,
+      floatImage: `http://localhost:1337${highlight.floatImage?.url}`,
+      buttonLabel: highlight.buttonLabel,
+      buttonLink: highlight.buttonLink,
+      alignment: highlight.alignment
     }
   )
 }
