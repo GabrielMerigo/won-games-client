@@ -54,10 +54,10 @@ describe('<Games />', () => {
     ).toBeInTheDocument()
   })
 
-  it('should render empty wwhen no games found', async () => {
+  it('should render empty when no games found', async () => {
     renderWithTheme(
       <MockedProvider mocks={[]} addTypename={false}>
-        <Games filterItems={filterItemsMock} />
+        <Games filterItems={[]} />
       </MockedProvider>
     );
 
