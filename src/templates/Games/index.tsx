@@ -13,6 +13,7 @@ import { Grid } from 'components/Grid'
 
 import * as S from './styles'
 import Empty from 'components/Empty'
+import { QueryGames } from 'types/types_queries/QUERY_GAMES'
 
 export type GamesTemplateProps = {
   filterItems: ItemProps[]
@@ -30,7 +31,8 @@ const GamesTemplate = ({ filterItems }: GamesTemplateProps) => {
     }
   })
 
-  const hasMoreGames = data!.games.length < (data!.gamesConnection?.values?.length || 0)
+
+  const hasMoreGames = (data as QueryGames).games.length < ((data as QueryGames).gamesConnection?.values?.length || 0)
 
   const handleFilter = (items: ParsedUrlQueryInput) => {
     push({

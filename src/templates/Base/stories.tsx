@@ -1,9 +1,9 @@
 import { Meta, Story } from '@storybook/react';
-import Base from '.';
+import BaseComponent from '.';
 
 export default {
   title: `Base`,
-  component: Base
+  component: BaseComponent
 } as Meta
 
 export const Base: Story = () => <Base />
